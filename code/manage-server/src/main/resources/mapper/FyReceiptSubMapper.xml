@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyReceiptSubMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyReceiptSub">
+            <id property="receiptDetailId" column="receipt_detail_id" jdbcType="INTEGER"/>
+            <result property="receiptId" column="receipt_id" jdbcType="VARCHAR"/>
+            <result property="moneySettingName" column="money_setting_name" jdbcType="VARCHAR"/>
+            <result property="chargeUnit" column="charge_unit" jdbcType="DOUBLE"/>
+            <result property="lastReadNumber" column="last_read_number" jdbcType="DOUBLE"/>
+            <result property="currentReadNumber" column="current_read_number" jdbcType="DOUBLE"/>
+            <result property="realUsed" column="real_used" jdbcType="DOUBLE"/>
+            <result property="money" column="money" jdbcType="DOUBLE"/>
+            <result property="delayMoney" column="delay_money" jdbcType="DOUBLE"/>
+            <result property="delayDerateMoney" column="delay_derate_money" jdbcType="DOUBLE"/>
+            <result property="currentShouldPay" column="current_should_pay" jdbcType="DOUBLE"/>
+            <result property="overDay" column="over_day" jdbcType="INTEGER"/>
+            <result property="moneyStartDate" column="money_start_date" jdbcType="TIMESTAMP"/>
+            <result property="moneyStopDate" column="money_stop_date" jdbcType="TIMESTAMP"/>
+            <result property="payLimitDay" column="pay_limit_day" jdbcType="TIMESTAMP"/>
+            <result property="floorFactor" column="floor_factor" jdbcType="DOUBLE"/>
+            <result property="inputPerson" column="input_person" jdbcType="VARCHAR"/>
+            <result property="standingBookId" column="standing_book_id" jdbcType="VARCHAR"/>
+            <result property="receiveCycle" column="receive_cycle" jdbcType="INTEGER"/>
+            <result property="derateMoney" column="derate_money" jdbcType="DOUBLE"/>
+            <result property="moneyId" column="money_id" jdbcType="INTEGER"/>
+            <result property="updateReason" column="update_reason" jdbcType="VARCHAR"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="moneyMult" column="money_mult" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        receipt_detail_id,receipt_id,money_setting_name,
+        charge_unit,last_read_number,current_read_number,
+        real_used,money,delay_money,
+        delay_derate_money,current_should_pay,over_day,
+        money_start_date,money_stop_date,pay_limit_day,
+        floor_factor,input_person,standing_book_id,
+        receive_cycle,derate_money,money_id,
+        update_reason,update_person,update_date,
+        money_mult
+    </sql>
+</mapper>

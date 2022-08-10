@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyGreenSettingMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyGreenSetting">
+            <result property="settingCode" column="setting_code" jdbcType="VARCHAR"/>
+            <result property="settingName" column="setting_name" jdbcType="VARCHAR"/>
+            <result property="area" column="area" jdbcType="DOUBLE"/>
+            <result property="greenDate" column="green_date" jdbcType="TIMESTAMP"/>
+            <result property="greenPlace" column="green_place" jdbcType="VARCHAR"/>
+            <result property="leader" column="leader" jdbcType="VARCHAR"/>
+            <result property="mainVegetation" column="main_vegetation" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        setting_code,setting_name,area,
+        green_date,green_place,leader,
+        main_vegetation,remark,company
+    </sql>
+</mapper>

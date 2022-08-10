@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblMainMenuMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblMainMenu">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="mainMenuName" column="main_menu_name" jdbcType="VARCHAR"/>
+            <result property="mainMenuUrl" column="main_menu_url" jdbcType="VARCHAR"/>
+            <result property="mainMenuIcon" column="main_menu_icon" jdbcType="VARCHAR"/>
+            <result property="mainMenuStatus" column="main_menu_status" jdbcType="CHAR"/>
+            <result property="mainMenuKey" column="main_menu_key" jdbcType="VARCHAR"/>
+            <result property="mainMenuOrder" column="main_menu_order" jdbcType="DOUBLE"/>
+            <result property="belongProduct" column="belong_product" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,main_menu_name,main_menu_url,
+        main_menu_icon,main_menu_status,main_menu_key,
+        main_menu_order,belong_product
+    </sql>
+</mapper>

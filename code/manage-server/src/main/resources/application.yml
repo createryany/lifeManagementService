@@ -1,0 +1,18 @@
+server:
+  port: 4090
+spring:
+  application:
+    name: yijiayun-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yijiayun?useSSL=false&serverTimezone=UTC
+    username: root
+    password: admin123
+logging:
+  level:
+    com:
+      mashibing:
+        mapper:
+          common: debug
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml

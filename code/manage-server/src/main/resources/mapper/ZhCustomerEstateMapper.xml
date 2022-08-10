@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhCustomerEstateMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhCustomerEstate">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="customerId" column="customer_id" jdbcType="INTEGER"/>
+            <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="useStatus" column="use_status" jdbcType="CHAR"/>
+            <result property="liveDate" column="live_date" jdbcType="TIMESTAMP"/>
+            <result property="decorateDate" column="decorate_date" jdbcType="TIMESTAMP"/>
+            <result property="subscriptionCardNumber" column="subscription_card_number" jdbcType="VARCHAR"/>
+            <result property="houseCode" column="house_code" jdbcType="VARCHAR"/>
+            <result property="isPayDecorateMoney" column="is_pay_decorate_money" jdbcType="CHAR"/>
+            <result property="prePayDecorateMoney" column="pre_pay_decorate_money" jdbcType="DOUBLE"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="orderid" column="orderid" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,customer_id,customer_name,
+        cell_id,use_status,live_date,
+        decorate_date,subscription_card_number,house_code,
+        is_pay_decorate_money,pre_pay_decorate_money,remark,
+        orderid
+    </sql>
+</mapper>

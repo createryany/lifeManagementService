@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblCompanyMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblCompany">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="companyFullName" column="company_full_name" jdbcType="VARCHAR"/>
+            <result property="companySimpleName" column="company_simple_name" jdbcType="VARCHAR"/>
+            <result property="companyEnglishName" column="company_english_name" jdbcType="VARCHAR"/>
+            <result property="companyBrand" column="company_brand" jdbcType="VARCHAR"/>
+            <result property="companyType" column="company_type" jdbcType="VARCHAR"/>
+            <result property="companyTrade" column="company_trade" jdbcType="VARCHAR"/>
+            <result property="companyAddr" column="company_addr" jdbcType="VARCHAR"/>
+            <result property="postCode" column="post_code" jdbcType="VARCHAR"/>
+            <result property="companyPhone" column="company_phone" jdbcType="VARCHAR"/>
+            <result property="companyFax" column="company_fax" jdbcType="VARCHAR"/>
+            <result property="companyWebsite" column="company_website" jdbcType="VARCHAR"/>
+            <result property="companyEmail" column="company_email" jdbcType="VARCHAR"/>
+            <result property="companyNational" column="company_national" jdbcType="VARCHAR"/>
+            <result property="companyLand" column="company_land" jdbcType="VARCHAR"/>
+            <result property="openBank" column="open_bank" jdbcType="VARCHAR"/>
+            <result property="bankAccount" column="bank_account" jdbcType="VARCHAR"/>
+            <result property="companyLeader" column="company_leader" jdbcType="VARCHAR"/>
+            <result property="registerDate" column="register_date" jdbcType="TIMESTAMP"/>
+            <result property="registerMoney" column="register_money" jdbcType="DOUBLE"/>
+            <result property="employeeNumber" column="employee_number" jdbcType="VARCHAR"/>
+            <result property="companyIntro" column="company_intro" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,company_full_name,company_simple_name,
+        company_english_name,company_brand,company_type,
+        company_trade,company_addr,post_code,
+        company_phone,company_fax,company_website,
+        company_email,company_national,company_land,
+        open_bank,bank_account,company_leader,
+        register_date,register_money,employee_number,
+        company_intro,remark
+    </sql>
+</mapper>

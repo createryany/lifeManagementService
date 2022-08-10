@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyRefundMainMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyRefundMain">
+            <id property="refundId" column="refund_id" jdbcType="VARCHAR"/>
+            <result property="receiptId" column="receipt_id" jdbcType="VARCHAR"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="receiveCycle" column="receive_cycle" jdbcType="TIMESTAMP"/>
+            <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+            <result property="money" column="money" jdbcType="DOUBLE"/>
+            <result property="realReceiveMoney" column="real_receive_money" jdbcType="DOUBLE"/>
+            <result property="discountMoney" column="discount_money" jdbcType="DOUBLE"/>
+            <result property="receiveMethod" column="receive_method" jdbcType="VARCHAR"/>
+            <result property="isCustomer" column="is_customer" jdbcType="VARCHAR"/>
+            <result property="receiveMoney" column="receive_money" jdbcType="DOUBLE"/>
+            <result property="moneyId" column="money_id" jdbcType="BIGINT"/>
+            <result property="estateId" column="estate_id" jdbcType="INTEGER"/>
+            <result property="currentDelayMoney" column="current_delay_money" jdbcType="DOUBLE"/>
+            <result property="lastDelayMoney" column="last_delay_money" jdbcType="DOUBLE"/>
+            <result property="refundType" column="refund_type" jdbcType="CHAR"/>
+            <result property="receiptNumber" column="receipt_number" jdbcType="VARCHAR"/>
+            <result property="invoiceNumber" column="invoice_number" jdbcType="VARCHAR"/>
+            <result property="receivePerson" column="receive_person" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="refundReason" column="refund_reason" jdbcType="VARCHAR"/>
+            <result property="refundTime" column="refund_time" jdbcType="TIMESTAMP"/>
+            <result property="refundPerson" column="refund_person" jdbcType="VARCHAR"/>
+            <result property="checkStatus" column="check_status" jdbcType="VARCHAR"/>
+            <result property="checkPerson" column="check_person" jdbcType="VARCHAR"/>
+            <result property="checkTime" column="check_time" jdbcType="TIMESTAMP"/>
+            <result property="checkAdvice" column="check_advice" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        refund_id,receipt_id,cell_id,
+        receive_cycle,customer_name,money,
+        real_receive_money,discount_money,receive_method,
+        is_customer,receive_money,money_id,
+        estate_id,current_delay_money,last_delay_money,
+        refund_type,receipt_number,invoice_number,
+        receive_person,remark,company,
+        refund_reason,refund_time,refund_person,
+        check_status,check_person,check_time,
+        check_advice
+    </sql>
+</mapper>

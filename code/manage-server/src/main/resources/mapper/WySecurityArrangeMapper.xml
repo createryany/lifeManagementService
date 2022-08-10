@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WySecurityArrangeMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WySecurityArrange">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+            <result property="stopDate" column="stop_date" jdbcType="TIMESTAMP"/>
+            <result property="classes" column="classes" jdbcType="VARCHAR"/>
+            <result property="timeFrame" column="time_frame" jdbcType="VARCHAR"/>
+            <result property="district" column="district" jdbcType="VARCHAR"/>
+            <result property="waterkeeper" column="waterkeeper" jdbcType="VARCHAR"/>
+            <result property="job" column="job" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,start_date,stop_date,
+        classes,time_frame,district,
+        waterkeeper,job,remark,
+        company
+    </sql>
+</mapper>

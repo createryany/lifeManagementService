@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyAskMsgRemindLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyAskMsgRemindLog">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="moneyId" column="money_id" jdbcType="INTEGER"/>
+            <result property="receivePhone" column="receive_phone" jdbcType="VARCHAR"/>
+            <result property="payLimitDay" column="pay_limit_day" jdbcType="TIMESTAMP"/>
+            <result property="remindDays" column="remind_days" jdbcType="INTEGER"/>
+            <result property="cellName" column="cell_name" jdbcType="VARCHAR"/>
+            <result property="sendPersonId" column="send_person_id" jdbcType="VARCHAR"/>
+            <result property="sendPersonName" column="send_person_name" jdbcType="VARCHAR"/>
+            <result property="sendDate" column="send_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cell_id,money_id,
+        receive_phone,pay_limit_day,remind_days,
+        cell_name,send_person_id,send_person_name,
+        send_date
+    </sql>
+</mapper>

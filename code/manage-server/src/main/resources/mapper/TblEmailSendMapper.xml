@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblEmailSendMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblEmailSend">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="receivePersonCode" column="receive_person_code" jdbcType="VARCHAR"/>
+            <result property="receivePersonName" column="receive_person_name" jdbcType="VARCHAR"/>
+            <result property="emailTitle" column="email_title" jdbcType="VARCHAR"/>
+            <result property="emailContent" column="email_content" jdbcType="VARCHAR"/>
+            <result property="importantGrade" column="important_grade" jdbcType="CHAR"/>
+            <result property="isDraft" column="is_draft" jdbcType="CHAR"/>
+            <result property="isDelete" column="is_delete" jdbcType="CHAR"/>
+            <result property="isSecretSend" column="is_secret_send" jdbcType="CHAR"/>
+            <result property="emailAttach" column="email_attach" jdbcType="VARCHAR"/>
+            <result property="sendType" column="send_type" jdbcType="CHAR"/>
+            <result property="sendPerson" column="send_person" jdbcType="VARCHAR"/>
+            <result property="sendName" column="send_name" jdbcType="VARCHAR"/>
+            <result property="sendDate" column="send_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,receive_person_code,receive_person_name,
+        email_title,email_content,important_grade,
+        is_draft,is_delete,is_secret_send,
+        email_attach,send_type,send_person,
+        send_name,send_date
+    </sql>
+</mapper>

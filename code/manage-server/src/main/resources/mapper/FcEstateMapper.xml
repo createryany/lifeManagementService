@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FcEstateMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FcEstate">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="estateCode" column="estate_code" jdbcType="VARCHAR"/>
+            <result property="estateName" column="estate_name" jdbcType="VARCHAR"/>
+            <result property="estateAddr" column="estate_addr" jdbcType="VARCHAR"/>
+            <result property="coverArea" column="cover_area" jdbcType="DOUBLE"/>
+            <result property="buildArea" column="build_area" jdbcType="DOUBLE"/>
+            <result property="greenArea" column="green_area" jdbcType="DOUBLE"/>
+            <result property="roadArea" column="road_area" jdbcType="DOUBLE"/>
+            <result property="buildingNumber" column="building_number" jdbcType="DOUBLE"/>
+            <result property="buildingLeader" column="building_leader" jdbcType="VARCHAR"/>
+            <result property="companyName" column="company_name" jdbcType="VARCHAR"/>
+            <result property="companyBehalf" column="company_behalf" jdbcType="VARCHAR"/>
+            <result property="contact" column="contact" jdbcType="VARCHAR"/>
+            <result property="contactPhone" column="contact_phone" jdbcType="VARCHAR"/>
+            <result property="contactAddr" column="contact_addr" jdbcType="VARCHAR"/>
+            <result property="carSpaceDelayRate" column="car_space_delay_rate" jdbcType="DOUBLE"/>
+            <result property="carSpaceOverDay" column="car_space_over_day" jdbcType="INTEGER"/>
+            <result property="estateType" column="estate_type" jdbcType="CHAR"/>
+            <result property="streetLampNumber" column="street_lamp_number" jdbcType="INTEGER"/>
+            <result property="hfcnum" column="hfcNum" jdbcType="INTEGER"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,estate_code,estate_name,
+        estate_addr,cover_area,build_area,
+        green_area,road_area,building_number,
+        building_leader,company_name,company_behalf,
+        contact,contact_phone,contact_addr,
+        car_space_delay_rate,car_space_over_day,estate_type,
+        street_lamp_number,hfcNum,remark,
+        company
+    </sql>
+</mapper>

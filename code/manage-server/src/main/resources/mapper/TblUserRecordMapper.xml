@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblUserRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblUserRecord">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+            <result property="userPassword" column="user_password" jdbcType="VARCHAR"/>
+            <result property="userType" column="user_type" jdbcType="VARCHAR"/>
+            <result property="userRole" column="user_role" jdbcType="INTEGER"/>
+            <result property="userGender" column="user_gender" jdbcType="VARCHAR"/>
+            <result property="userDept" column="user_dept" jdbcType="INTEGER"/>
+            <result property="userJob" column="user_job" jdbcType="INTEGER"/>
+            <result property="userStatus" column="user_status" jdbcType="VARCHAR"/>
+            <result property="officePhone" column="office_phone" jdbcType="VARCHAR"/>
+            <result property="innerPhone" column="inner_phone" jdbcType="VARCHAR"/>
+            <result property="movePhone" column="move_phone" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="isSendMsg" column="is_send_msg" jdbcType="VARCHAR"/>
+            <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+            <result property="stopDate" column="stop_date" jdbcType="TIMESTAMP"/>
+            <result property="birthday" column="birthday" jdbcType="TIMESTAMP"/>
+            <result property="ipRule" column="ip_rule" jdbcType="VARCHAR"/>
+            <result property="userHiredate" column="user_hiredate" jdbcType="TIMESTAMP"/>
+            <result property="isSendWchat" column="is_send_wchat" jdbcType="CHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="isDeptAdmin" column="is_dept_admin" jdbcType="CHAR"/>
+            <result property="lastLoginDate" column="last_login_date" jdbcType="TIMESTAMP"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_name,user_password,
+        user_type,user_role,user_gender,
+        user_dept,user_job,user_status,
+        office_phone,inner_phone,move_phone,
+        email,is_send_msg,start_date,
+        stop_date,birthday,ip_rule,
+        user_hiredate,is_send_wchat,remark,
+        company,is_dept_admin,last_login_date,
+        create_person,create_date
+    </sql>
+</mapper>

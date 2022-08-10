@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblQuickMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblQuick">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="quickName" column="quick_name" jdbcType="VARCHAR"/>
+            <result property="urlParam" column="url_param" jdbcType="VARCHAR"/>
+            <result property="codePath" column="code_path" jdbcType="VARCHAR"/>
+            <result property="iconName" column="icon_name" jdbcType="VARCHAR"/>
+            <result property="mechineName" column="mechine_name" jdbcType="VARCHAR"/>
+            <result property="publicType" column="public_type" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="CHAR"/>
+            <result property="inputRecordPerson" column="input_record_person" jdbcType="VARCHAR"/>
+            <result property="inputRecordDate" column="input_record_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,quick_name,url_param,
+        code_path,icon_name,mechine_name,
+        public_type,type,input_record_person,
+        input_record_date
+    </sql>
+</mapper>

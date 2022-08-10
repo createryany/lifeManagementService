@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblNetdiskUrlMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblNetdiskUrl">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="dirId" column="dir_id" jdbcType="INTEGER"/>
+            <result property="fileName" column="file_name" jdbcType="VARCHAR"/>
+            <result property="newName" column="new_name" jdbcType="VARCHAR"/>
+            <result property="fileType" column="file_type" jdbcType="VARCHAR"/>
+            <result property="fileSize" column="file_size" jdbcType="INTEGER"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,dir_id,file_name,
+        new_name,file_type,file_size,
+        create_date
+    </sql>
+</mapper>

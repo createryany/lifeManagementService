@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblDbSettingMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblDbSetting">
+            <result property="dbUrl" column="db_Url" jdbcType="VARCHAR"/>
+            <result property="dbUsername" column="db_username" jdbcType="VARCHAR"/>
+            <result property="dbPwd" column="db_pwd" jdbcType="VARCHAR"/>
+            <result property="dbLibName" column="db_lib_name" jdbcType="VARCHAR"/>
+            <result property="savePath" column="save_path" jdbcType="VARCHAR"/>
+            <result property="saveName" column="save_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        db_Url,db_username,db_pwd,
+        db_lib_name,save_path,save_name
+    </sql>
+</mapper>

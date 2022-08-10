@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyVisitManageMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyVisitManage">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="visitDate" column="visit_date" jdbcType="TIMESTAMP"/>
+            <result property="leaveDate" column="leave_date" jdbcType="TIMESTAMP"/>
+            <result property="visitPerson" column="visit_person" jdbcType="VARCHAR"/>
+            <result property="idCard" column="id_card" jdbcType="VARCHAR"/>
+            <result property="visitAddr" column="visit_addr" jdbcType="VARCHAR"/>
+            <result property="visitReason" column="visit_reason" jdbcType="VARCHAR"/>
+            <result property="visitedPerson" column="visited_person" jdbcType="VARCHAR"/>
+            <result property="visitedReason" column="visited_reason" jdbcType="VARCHAR"/>
+            <result property="agent" column="agent" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,visit_date,leave_date,
+        visit_person,id_card,visit_addr,
+        visit_reason,visited_person,visited_reason,
+        agent,remark,company
+    </sql>
+</mapper>

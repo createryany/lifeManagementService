@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblDbrecoveryMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblDbrecovery">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="dbName" column="db_name" jdbcType="VARCHAR"/>
+            <result property="dbUrl" column="db_url" jdbcType="VARCHAR"/>
+            <result property="operateId" column="operate_id" jdbcType="VARCHAR"/>
+            <result property="operatePerson" column="operate_person" jdbcType="VARCHAR"/>
+            <result property="operateDate" column="operate_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,db_name,db_url,
+        operate_id,operate_person,operate_date
+    </sql>
+</mapper>

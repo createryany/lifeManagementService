@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FcCellMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FcCell">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="unitCode" column="unit_code" jdbcType="INTEGER"/>
+            <result property="cellCode" column="cell_code" jdbcType="VARCHAR"/>
+            <result property="cellName" column="cell_name" jdbcType="VARCHAR"/>
+            <result property="cellHouseCode" column="cell_house_code" jdbcType="VARCHAR"/>
+            <result property="cellTowardCode" column="cell_toward_code" jdbcType="VARCHAR"/>
+            <result property="cellFunction" column="cell_function" jdbcType="CHAR"/>
+            <result property="cellDecorateCode" column="cell_decorate_code" jdbcType="VARCHAR"/>
+            <result property="cellUsedArea" column="cell_used_area" jdbcType="DOUBLE"/>
+            <result property="cellBuildArea" column="cell_build_area" jdbcType="DOUBLE"/>
+            <result property="carportArea" column="carport_area" jdbcType="DOUBLE"/>
+            <result property="carArea" column="car_area" jdbcType="DOUBLE"/>
+            <result property="loftArea" column="loft_area" jdbcType="DOUBLE"/>
+            <result property="storeArea" column="store_area" jdbcType="DOUBLE"/>
+            <result property="floorNumber" column="floor_number" jdbcType="INTEGER"/>
+            <result property="lastDebt" column="last_debt" jdbcType="DOUBLE"/>
+            <result property="propertyType" column="property_type" jdbcType="BIGINT"/>
+            <result property="rentMoney" column="rent_money" jdbcType="DOUBLE"/>
+            <result property="length" column="length" jdbcType="DOUBLE"/>
+            <result property="width" column="width" jdbcType="DOUBLE"/>
+            <result property="stallUse" column="stall_use" jdbcType="BIGINT"/>
+            <result property="stallArea" column="stall_area" jdbcType="BIGINT"/>
+            <result property="isSale" column="is_sale" jdbcType="CHAR"/>
+            <result property="isRent" column="is_rent" jdbcType="CHAR"/>
+            <result property="saleContractId" column="sale_contract_id" jdbcType="VARCHAR"/>
+            <result property="rentContractId" column="rent_contract_id" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="factor" column="factor" jdbcType="CHAR"/>
+            <result property="cellProperty" column="cell_property" jdbcType="INTEGER"/>
+            <result property="storeId" column="store_id" jdbcType="VARCHAR"/>
+            <result property="carLicenceId" column="car_licence_id" jdbcType="VARCHAR"/>
+            <result property="carSpaceId" column="car_space_id" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,unit_code,cell_code,
+        cell_name,cell_house_code,cell_toward_code,
+        cell_function,cell_decorate_code,cell_used_area,
+        cell_build_area,carport_area,car_area,
+        loft_area,store_area,floor_number,
+        last_debt,property_type,rent_money,
+        length,width,stall_use,
+        stall_area,is_sale,is_rent,
+        sale_contract_id,rent_contract_id,remark,
+        factor,cell_property,store_id,
+        car_licence_id,car_space_id
+    </sql>
+</mapper>

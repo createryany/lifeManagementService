@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyPreReceiveMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyPreReceive">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="voucherNumber" column="voucher_number" jdbcType="VARCHAR"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="summary" column="summary" jdbcType="VARCHAR"/>
+            <result property="money" column="money" jdbcType="DOUBLE"/>
+            <result property="handlerPerson" column="handler_person" jdbcType="VARCHAR"/>
+            <result property="receiveDate" column="receive_date" jdbcType="TIMESTAMP"/>
+            <result property="inputPerson" column="input_person" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="receiveMethod" column="receive_method" jdbcType="VARCHAR"/>
+            <result property="dataSource" column="data_source" jdbcType="VARCHAR"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,voucher_number,cell_id,
+        summary,money,handler_person,
+        receive_date,input_person,company,
+        receive_method,data_source,update_person,
+        update_date
+    </sql>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyDutyManageMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyDutyManage">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="dutyDate" column="duty_date" jdbcType="TIMESTAMP"/>
+            <result property="dutyPerson" column="duty_person" jdbcType="VARCHAR"/>
+            <result property="dutyType" column="duty_type" jdbcType="VARCHAR"/>
+            <result property="dutyPlace" column="duty_place" jdbcType="VARCHAR"/>
+            <result property="dutyRecord" column="duty_record" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,duty_date,duty_person,
+        duty_type,duty_place,duty_record,
+        remark,company
+    </sql>
+</mapper>

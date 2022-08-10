@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhCustomerMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhCustomer">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="customerCode" column="customer_code" jdbcType="VARCHAR"/>
+            <result property="customerPwd" column="customer_pwd" jdbcType="VARCHAR"/>
+            <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+            <result property="customerBirthday" column="customer_birthday" jdbcType="VARCHAR"/>
+            <result property="customerGender" column="customer_gender" jdbcType="VARCHAR"/>
+            <result property="openBank" column="open_bank" jdbcType="VARCHAR"/>
+            <result property="nationality" column="nationality" jdbcType="VARCHAR"/>
+            <result property="bankAccount" column="bank_account" jdbcType="VARCHAR"/>
+            <result property="education" column="education" jdbcType="VARCHAR"/>
+            <result property="certificateNumber" column="certificate_number" jdbcType="VARCHAR"/>
+            <result property="certificateType" column="certificate_type" jdbcType="VARCHAR"/>
+            <result property="workPlace" column="work_place" jdbcType="VARCHAR"/>
+            <result property="customerDuty" column="customer_duty" jdbcType="VARCHAR"/>
+            <result property="police" column="police" jdbcType="VARCHAR"/>
+            <result property="nation" column="nation" jdbcType="VARCHAR"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="nativePlace" column="native_place" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="postCode" column="post_code" jdbcType="VARCHAR"/>
+            <result property="urgencyUserName" column="urgency_user_name" jdbcType="VARCHAR"/>
+            <result property="urgencyUserPhone" column="urgency_user_phone" jdbcType="VARCHAR"/>
+            <result property="urgencyUserAddress" column="urgency_user_address" jdbcType="VARCHAR"/>
+            <result property="customerStatus" column="customer_status" jdbcType="CHAR"/>
+            <result property="customerType" column="customer_type" jdbcType="CHAR"/>
+            <result property="picture" column="picture" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="isBankWithhold" column="is_bank_withhold" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,customer_code,customer_pwd,
+        customer_name,customer_birthday,customer_gender,
+        open_bank,nationality,bank_account,
+        education,certificate_number,certificate_type,
+        work_place,customer_duty,police,
+        nation,phone_number,native_place,
+        address,post_code,urgency_user_name,
+        urgency_user_phone,urgency_user_address,customer_status,
+        customer_type,picture,remark,
+        create_person,create_date,update_person,
+        update_date,company,is_bank_withhold
+    </sql>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FcCellAddbuildMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FcCellAddbuild">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="addbuildArea" column="addbuild_area" jdbcType="DOUBLE"/>
+            <result property="addbuildTime" column="addbuild_time" jdbcType="TIMESTAMP"/>
+            <result property="addbuildState" column="addbuild_state" jdbcType="VARCHAR"/>
+            <result property="addbuildDesc" column="addbuild_desc" jdbcType="VARCHAR"/>
+            <result property="addbuildAccessory" column="addbuild_accessory" jdbcType="VARCHAR"/>
+            <result property="operatePerson" column="operate_person" jdbcType="VARCHAR"/>
+            <result property="operateDate" column="operate_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cell_id,addbuild_area,
+        addbuild_time,addbuild_state,addbuild_desc,
+        addbuild_accessory,operate_person,operate_date
+    </sql>
+</mapper>

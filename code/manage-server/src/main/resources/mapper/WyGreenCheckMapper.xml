@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyGreenCheckMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyGreenCheck">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="greenCode" column="green_code" jdbcType="VARCHAR"/>
+            <result property="checkDate" column="check_date" jdbcType="TIMESTAMP"/>
+            <result property="checkCondition" column="check_condition" jdbcType="VARCHAR"/>
+            <result property="handleCondition" column="handle_condition" jdbcType="VARCHAR"/>
+            <result property="checkPerson" column="check_person" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,green_code,check_date,
+        check_condition,handle_condition,check_person,
+        remark,company
+    </sql>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhCsHandleSpeedMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhCsHandleSpeed">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="serviceId" column="service_id" jdbcType="INTEGER"/>
+            <result property="transactorName" column="transactor_name" jdbcType="VARCHAR"/>
+            <result property="transactorDate" column="transactor_date" jdbcType="TIMESTAMP"/>
+            <result property="transactorContent" column="transactor_content" jdbcType="VARCHAR"/>
+            <result property="recorderId" column="recorder_id" jdbcType="VARCHAR"/>
+            <result property="recorderName" column="recorder_name" jdbcType="VARCHAR"/>
+            <result property="recorderDate" column="recorder_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,service_id,transactor_name,
+        transactor_date,transactor_content,recorder_id,
+        recorder_name,recorder_date
+    </sql>
+</mapper>

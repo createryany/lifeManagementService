@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyMoneySettingMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyMoneySetting">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="moneySettingCode" column="money_setting_code" jdbcType="VARCHAR"/>
+            <result property="moneySettingName" column="money_setting_name" jdbcType="VARCHAR"/>
+            <result property="receiveType" column="receive_type" jdbcType="VARCHAR"/>
+            <result property="priceUnit" column="price_unit" jdbcType="DOUBLE"/>
+            <result property="receiveCycle" column="receive_cycle" jdbcType="INTEGER"/>
+            <result property="moneyType" column="money_type" jdbcType="CHAR"/>
+            <result property="isUpdatePrice" column="is_update_price" jdbcType="CHAR"/>
+            <result property="isConvenientMoney" column="is_convenient_money" jdbcType="CHAR"/>
+            <result property="minUsedNumber" column="min_used_number" jdbcType="DOUBLE"/>
+            <result property="isStepReceive" column="is_step_receive" jdbcType="CHAR"/>
+            <result property="stepCondition1" column="step_condition_1" jdbcType="DOUBLE"/>
+            <result property="stepPrice1" column="step_price_1" jdbcType="DOUBLE"/>
+            <result property="stepCondition21" column="step_condition_21" jdbcType="DOUBLE"/>
+            <result property="stepCondition22" column="step_condition_22" jdbcType="DOUBLE"/>
+            <result property="stepPrice2" column="step_price_2" jdbcType="DOUBLE"/>
+            <result property="stepCondition31" column="step_condition_31" jdbcType="DOUBLE"/>
+            <result property="stepCondition32" column="step_condition_32" jdbcType="DOUBLE"/>
+            <result property="stepPrice3" column="step_price_3" jdbcType="DOUBLE"/>
+            <result property="stepCondition41" column="step_condition_41" jdbcType="DOUBLE"/>
+            <result property="stepCondition42" column="step_condition_42" jdbcType="DOUBLE"/>
+            <result property="stepPrice4" column="step_price_4" jdbcType="DOUBLE"/>
+            <result property="stepCondition5" column="step_condition_5" jdbcType="DOUBLE"/>
+            <result property="stepPrice5" column="step_price_5" jdbcType="DOUBLE"/>
+            <result property="renewMessage" column="renew_message" jdbcType="CHAR"/>
+            <result property="receiveWarnStopDay" column="receive_warn_stop_day" jdbcType="INTEGER"/>
+            <result property="maxWarnNumber" column="max_warn_number" jdbcType="SMALLINT"/>
+            <result property="askMessage" column="ask_message" jdbcType="CHAR"/>
+            <result property="noReceiveWarnStopDay" column="no_receive_warn_stop_day" jdbcType="SMALLINT"/>
+            <result property="associateMoneyId" column="associate_money_id" jdbcType="INTEGER"/>
+            <result property="delayRate" column="delay_rate" jdbcType="DOUBLE"/>
+            <result property="delayOverDay" column="delay_over_day" jdbcType="INTEGER"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="receivePrintHidden" column="receive_print_hidden" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,money_setting_code,money_setting_name,
+        receive_type,price_unit,receive_cycle,
+        money_type,is_update_price,is_convenient_money,
+        min_used_number,is_step_receive,step_condition_1,
+        step_price_1,step_condition_21,step_condition_22,
+        step_price_2,step_condition_31,step_condition_32,
+        step_price_3,step_condition_41,step_condition_42,
+        step_price_4,step_condition_5,step_price_5,
+        renew_message,receive_warn_stop_day,max_warn_number,
+        ask_message,no_receive_warn_stop_day,associate_money_id,
+        delay_rate,delay_over_day,company,
+        receive_print_hidden
+    </sql>
+</mapper>

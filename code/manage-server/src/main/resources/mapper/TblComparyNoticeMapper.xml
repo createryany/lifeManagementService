@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblComparyNoticeMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblComparyNotice">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="noticeTheme" column="notice_theme" jdbcType="VARCHAR"/>
+            <result property="noticeContent" column="notice_content" jdbcType="VARCHAR"/>
+            <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+            <result property="stopDate" column="stop_date" jdbcType="TIMESTAMP"/>
+            <result property="receiveType" column="receive_type" jdbcType="VARCHAR"/>
+            <result property="noticeCategory" column="notice_category" jdbcType="BIGINT"/>
+            <result property="attachName" column="attach_name" jdbcType="VARCHAR"/>
+            <result property="attachPath" column="attach_path" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="noticeType" column="notice_type" jdbcType="CHAR"/>
+            <result property="noticeAttach" column="notice_attach" jdbcType="VARCHAR"/>
+            <result property="inputPerson" column="input_person" jdbcType="VARCHAR"/>
+            <result property="inputDate" column="input_date" jdbcType="TIMESTAMP"/>
+            <result property="checkPerson" column="check_person" jdbcType="VARCHAR"/>
+            <result property="checkDate" column="check_date" jdbcType="TIMESTAMP"/>
+            <result property="checkAdvice" column="check_advice" jdbcType="VARCHAR"/>
+            <result property="allowUserCode" column="allow_user_code" jdbcType="VARCHAR"/>
+            <result property="allowUserName" column="allow_user_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,notice_theme,notice_content,
+        start_date,stop_date,receive_type,
+        notice_category,attach_name,attach_path,
+        status,notice_type,notice_attach,
+        input_person,input_date,check_person,
+        check_date,check_advice,allow_user_code,
+        allow_user_name
+    </sql>
+</mapper>

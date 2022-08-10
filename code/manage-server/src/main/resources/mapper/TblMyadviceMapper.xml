@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblMyadviceMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblMyadvice">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="adviceBox" column="advice_box" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="attachName" column="attach_name" jdbcType="VARCHAR"/>
+            <result property="publisherId" column="publisher_id" jdbcType="VARCHAR"/>
+            <result property="publisherName" column="publisher_name" jdbcType="VARCHAR"/>
+            <result property="publisherDate" column="publisher_date" jdbcType="TIMESTAMP"/>
+            <result property="replyContent" column="reply_content" jdbcType="VARCHAR"/>
+            <result property="replyId" column="reply_id" jdbcType="VARCHAR"/>
+            <result property="replyName" column="reply_name" jdbcType="VARCHAR"/>
+            <result property="replyDate" column="reply_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,content,
+        advice_box,status,attach_name,
+        publisher_id,publisher_name,publisher_date,
+        reply_content,reply_id,reply_name,
+        reply_date
+    </sql>
+</mapper>

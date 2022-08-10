@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhRentContractRefundMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhRentContractRefund">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="contractId" column="contract_id" jdbcType="INTEGER"/>
+            <result property="rentId" column="rent_id" jdbcType="INTEGER"/>
+            <result property="rentName" column="rent_name" jdbcType="VARCHAR"/>
+            <result property="refundTime" column="refund_time" jdbcType="TIMESTAMP"/>
+            <result property="refundMoney" column="refund_money" jdbcType="DOUBLE"/>
+            <result property="refundStatus" column="refund_status" jdbcType="CHAR"/>
+            <result property="refundDesc" column="refund_desc" jdbcType="VARCHAR"/>
+            <result property="operateId" column="operate_id" jdbcType="VARCHAR"/>
+            <result property="operatePerson" column="operate_person" jdbcType="VARCHAR"/>
+            <result property="operateDate" column="operate_date" jdbcType="TIMESTAMP"/>
+            <result property="invalidId" column="invalid_id" jdbcType="VARCHAR"/>
+            <result property="invalidPerson" column="invalid_person" jdbcType="VARCHAR"/>
+            <result property="invalidReason" column="invalid_reason" jdbcType="TIMESTAMP"/>
+            <result property="invalidDate" column="invalid_date" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,contract_id,rent_id,
+        rent_name,refund_time,refund_money,
+        refund_status,refund_desc,operate_id,
+        operate_person,operate_date,invalid_id,
+        invalid_person,invalid_reason,invalid_date
+    </sql>
+</mapper>

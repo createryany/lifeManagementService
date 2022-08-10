@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblDashboardMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblDashboard">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="dataItem" column="data_item" jdbcType="VARCHAR"/>
+            <result property="morePath" column="more_path" jdbcType="VARCHAR"/>
+            <result property="privileges" column="privileges" jdbcType="VARCHAR"/>
+            <result property="status" column="Status" jdbcType="CHAR"/>
+            <result property="belongProduct" column="belong_product" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,data_item,more_path,
+        privileges,Status,belong_product
+    </sql>
+</mapper>

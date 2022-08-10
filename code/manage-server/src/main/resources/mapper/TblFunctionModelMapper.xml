@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblFunctionModelMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblFunctionModel">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="modelName" column="model_name" jdbcType="VARCHAR"/>
+            <result property="modelType" column="model_type" jdbcType="VARCHAR"/>
+            <result property="modelParent" column="model_parent" jdbcType="BIGINT"/>
+            <result property="modelStatus" column="model_status" jdbcType="VARCHAR"/>
+            <result property="modelUrl" column="model_url" jdbcType="VARCHAR"/>
+            <result property="modelAnalyseRef" column="model_analyse_ref" jdbcType="VARCHAR"/>
+            <result property="modelReportAnalyse" column="model_report_analyse" jdbcType="INTEGER"/>
+            <result property="modelIcon" column="model_icon" jdbcType="VARCHAR"/>
+            <result property="modelProperty" column="model_property" jdbcType="CHAR"/>
+            <result property="modelDesc" column="model_desc" jdbcType="VARCHAR"/>
+            <result property="isControl" column="is_control" jdbcType="CHAR"/>
+            <result property="mFull" column="m_full" jdbcType="VARCHAR"/>
+            <result property="mAdd" column="m_add" jdbcType="VARCHAR"/>
+            <result property="mMod" column="m_mod" jdbcType="VARCHAR"/>
+            <result property="mDel" column="m_del" jdbcType="VARCHAR"/>
+            <result property="mExp" column="m_exp" jdbcType="VARCHAR"/>
+            <result property="mAud" column="m_aud" jdbcType="VARCHAR"/>
+            <result property="mExe" column="m_exe" jdbcType="VARCHAR"/>
+            <result property="mQue" column="m_que" jdbcType="VARCHAR"/>
+            <result property="dPerson" column="d_person" jdbcType="VARCHAR"/>
+            <result property="dDept" column="d_dept" jdbcType="VARCHAR"/>
+            <result property="dCompany" column="d_company" jdbcType="VARCHAR"/>
+            <result property="orderid" column="orderid" jdbcType="DOUBLE"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,model_name,model_type,
+        model_parent,model_status,model_url,
+        model_analyse_ref,model_report_analyse,model_icon,
+        model_property,model_desc,is_control,
+        m_full,m_add,m_mod,
+        m_del,m_exp,m_aud,
+        m_exe,m_que,d_person,
+        d_dept,d_company,orderid,
+        create_person,create_date
+    </sql>
+</mapper>

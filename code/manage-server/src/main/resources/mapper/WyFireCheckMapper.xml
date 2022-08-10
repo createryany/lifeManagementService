@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyFireCheckMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyFireCheck">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="checkDate" column="check_date" jdbcType="TIMESTAMP"/>
+            <result property="checkPlace" column="check_place" jdbcType="VARCHAR"/>
+            <result property="checkPerson" column="check_person" jdbcType="VARCHAR"/>
+            <result property="checkCondition" column="check_condition" jdbcType="VARCHAR"/>
+            <result property="handleAdvice" column="handle_advice" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,check_date,check_place,
+        check_person,check_condition,handle_advice,
+        remark,company
+    </sql>
+</mapper>

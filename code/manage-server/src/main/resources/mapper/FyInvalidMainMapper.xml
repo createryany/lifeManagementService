@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyInvalidMainMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyInvalidMain">
+            <id property="invalidId" column="invalid_id" jdbcType="VARCHAR"/>
+            <result property="receiveId" column="receive_id" jdbcType="VARCHAR"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="receiveDate" column="receive_date" jdbcType="TIMESTAMP"/>
+            <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+            <result property="money" column="money" jdbcType="DOUBLE"/>
+            <result property="realReceiveMoney" column="real_receive_money" jdbcType="DOUBLE"/>
+            <result property="discountMoney" column="discount_money" jdbcType="DOUBLE"/>
+            <result property="receiveMethod" column="receive_method" jdbcType="VARCHAR"/>
+            <result property="isCustomer" column="is_customer" jdbcType="VARCHAR"/>
+            <result property="receiveMoney" column="receive_money" jdbcType="DOUBLE"/>
+            <result property="moneyId" column="money_id" jdbcType="BIGINT"/>
+            <result property="estateId" column="estate_id" jdbcType="INTEGER"/>
+            <result property="currentDelayMoney" column="current_delay_money" jdbcType="DOUBLE"/>
+            <result property="lastDelayMoney" column="last_delay_money" jdbcType="DOUBLE"/>
+            <result property="invalidType" column="invalid_type" jdbcType="CHAR"/>
+            <result property="receiptNumber" column="receipt_number" jdbcType="VARCHAR"/>
+            <result property="invoiceNumber" column="invoice_number" jdbcType="VARCHAR"/>
+            <result property="receivePerson" column="receive_person" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="invalidReason" column="invalid_reason" jdbcType="VARCHAR"/>
+            <result property="invalidDate" column="invalid_date" jdbcType="TIMESTAMP"/>
+            <result property="invalidPerson" column="invalid_person" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        invalid_id,receive_id,cell_id,
+        receive_date,customer_name,money,
+        real_receive_money,discount_money,receive_method,
+        is_customer,receive_money,money_id,
+        estate_id,current_delay_money,last_delay_money,
+        invalid_type,receipt_number,invoice_number,
+        receive_person,remark,company,
+        invalid_reason,invalid_date,invalid_person
+    </sql>
+</mapper>

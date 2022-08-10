@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyMoneyTemporary02Mapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyMoneyTemporary02">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="moneyId" column="money_id" jdbcType="INTEGER"/>
+            <result property="recordName" column="record_name" jdbcType="VARCHAR"/>
+            <result property="recordRemark" column="record_remark" jdbcType="VARCHAR"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="estateName" column="estate_name" jdbcType="VARCHAR"/>
+            <result property="buildingName" column="building_name" jdbcType="VARCHAR"/>
+            <result property="unitName" column="unit_name" jdbcType="VARCHAR"/>
+            <result property="cellName" column="cell_name" jdbcType="VARCHAR"/>
+            <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+            <result property="chargeUnit" column="charge_unit" jdbcType="DOUBLE"/>
+            <result property="priceUnit" column="price_unit" jdbcType="DOUBLE"/>
+            <result property="shouldPay" column="should_pay" jdbcType="DOUBLE"/>
+            <result property="lastPayStopDate" column="last_pay_stop_date" jdbcType="TIMESTAMP"/>
+            <result property="currentPayStartDate" column="current_pay_start_date" jdbcType="TIMESTAMP"/>
+            <result property="currentPayStopDate" column="current_pay_stop_date" jdbcType="TIMESTAMP"/>
+            <result property="currentPayLimitDate" column="current_pay_limit_date" jdbcType="TIMESTAMP"/>
+            <result property="receiveCycle" column="receive_cycle" jdbcType="INTEGER"/>
+            <result property="operatePerson" column="operate_person" jdbcType="VARCHAR"/>
+            <result property="operateDate" column="operate_date" jdbcType="TIMESTAMP"/>
+            <result property="floorFactor" column="floor_factor" jdbcType="DOUBLE"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,money_id,record_name,
+        record_remark,cell_id,estate_name,
+        building_name,unit_name,cell_name,
+        customer_name,charge_unit,price_unit,
+        should_pay,last_pay_stop_date,current_pay_start_date,
+        current_pay_stop_date,current_pay_limit_date,receive_cycle,
+        operate_person,operate_date,floor_factor
+    </sql>
+</mapper>

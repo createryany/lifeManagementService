@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblSendLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblSendLog">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="sendName" column="send_name" jdbcType="VARCHAR"/>
+            <result property="requestDate" column="request_date" jdbcType="TIMESTAMP"/>
+            <result property="sendTag" column="send_tag" jdbcType="TINYINT"/>
+            <result property="timingDate" column="timing_date" jdbcType="TIMESTAMP"/>
+            <result property="messageType" column="message_type" jdbcType="INTEGER"/>
+            <result property="extendPhone" column="extend_phone" jdbcType="VARCHAR"/>
+            <result property="receivePhone" column="receive_phone" jdbcType="VARCHAR"/>
+            <result property="messageContent" column="message_content" jdbcType="VARCHAR"/>
+            <result property="isSend" column="is_send" jdbcType="INTEGER"/>
+            <result property="receiveIdentify" column="receive_identify" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,send_name,request_date,
+        send_tag,timing_date,message_type,
+        extend_phone,receive_phone,message_content,
+        is_send,receive_identify
+    </sql>
+</mapper>

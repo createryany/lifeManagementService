@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FcBuildingMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FcBuilding">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="estateCode" column="estate_code" jdbcType="VARCHAR"/>
+            <result property="buildingCode" column="building_code" jdbcType="VARCHAR"/>
+            <result property="buildingName" column="building_name" jdbcType="VARCHAR"/>
+            <result property="buildingFunction" column="building_function" jdbcType="VARCHAR"/>
+            <result property="usedArea" column="used_area" jdbcType="DOUBLE"/>
+            <result property="buildArea" column="build_area" jdbcType="DOUBLE"/>
+            <result property="buildPermissionId" column="build_permission_id" jdbcType="VARCHAR"/>
+            <result property="salePermissionId" column="sale_permission_id" jdbcType="VARCHAR"/>
+            <result property="finishDate" column="finish_date" jdbcType="TIMESTAMP"/>
+            <result property="overRoofDate" column="over_roof_date" jdbcType="TIMESTAMP"/>
+            <result property="decorate" column="decorate" jdbcType="VARCHAR"/>
+            <result property="structType" column="struct_type" jdbcType="VARCHAR"/>
+            <result property="damageGrade" column="damage_grade" jdbcType="VARCHAR"/>
+            <result property="unitCount" column="unit_count" jdbcType="DOUBLE"/>
+            <result property="buildingType" column="building_type" jdbcType="VARCHAR"/>
+            <result property="cleanFloor" column="clean_floor" jdbcType="INTEGER"/>
+            <result property="mopFloor" column="mop_floor" jdbcType="INTEGER"/>
+            <result property="channelArea" column="channel_area" jdbcType="DOUBLE"/>
+            <result property="elevator" column="elevator" jdbcType="INTEGER"/>
+            <result property="channelDoor" column="channel_door" jdbcType="INTEGER"/>
+            <result property="evevatorDoor" column="evevator_door" jdbcType="INTEGER"/>
+            <result property="waterWellDoor" column="water_well_door" jdbcType="INTEGER"/>
+            <result property="electricWellDoor" column="electric_well_door" jdbcType="INTEGER"/>
+            <result property="windowShades" column="window_shades" jdbcType="INTEGER"/>
+            <result property="hydrant" column="hydrant" jdbcType="INTEGER"/>
+            <result property="mirrors" column="mirrors" jdbcType="INTEGER"/>
+            <result property="unitDoor" column="unit_door" jdbcType="INTEGER"/>
+            <result property="hardenGroundArea" column="harden_ground_area" jdbcType="DOUBLE"/>
+            <result property="greenArea" column="green_area" jdbcType="DOUBLE"/>
+            <result property="noGreenArea" column="no_green_area" jdbcType="DOUBLE"/>
+            <result property="waterByPerson" column="water_by_person" jdbcType="DOUBLE"/>
+            <result property="isElevator" column="is_elevator" jdbcType="CHAR"/>
+            <result property="isSecondWaterElectric" column="is_second_water_electric" jdbcType="CHAR"/>
+            <result property="randomIdentify" column="random_identify" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,estate_code,building_code,
+        building_name,building_function,used_area,
+        build_area,build_permission_id,sale_permission_id,
+        finish_date,over_roof_date,decorate,
+        struct_type,damage_grade,unit_count,
+        building_type,clean_floor,mop_floor,
+        channel_area,elevator,channel_door,
+        evevator_door,water_well_door,electric_well_door,
+        window_shades,hydrant,mirrors,
+        unit_door,harden_ground_area,green_area,
+        no_green_area,water_by_person,is_elevator,
+        is_second_water_electric,random_identify,remark
+    </sql>
+</mapper>

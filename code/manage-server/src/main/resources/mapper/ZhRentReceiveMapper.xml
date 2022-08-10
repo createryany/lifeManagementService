@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhRentReceiveMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhRentReceive">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="contractId" column="contract_id" jdbcType="INTEGER"/>
+            <result property="rentId" column="rent_id" jdbcType="INTEGER"/>
+            <result property="rentName" column="rent_name" jdbcType="VARCHAR"/>
+            <result property="rentStartDate" column="rent_start_date" jdbcType="TIMESTAMP"/>
+            <result property="rentStopDate" column="rent_stop_date" jdbcType="TIMESTAMP"/>
+            <result property="rentMoney" column="rent_money" jdbcType="DOUBLE"/>
+            <result property="desc" column="desc" jdbcType="VARCHAR"/>
+            <result property="receiveId" column="receive_id" jdbcType="VARCHAR"/>
+            <result property="receivePerson" column="receive_person" jdbcType="VARCHAR"/>
+            <result property="receiveDate" column="receive_date" jdbcType="TIMESTAMP"/>
+            <result property="receiveStatus" column="receive_status" jdbcType="VARCHAR"/>
+            <result property="invalidId" column="invalid_id" jdbcType="VARCHAR"/>
+            <result property="invalidPersonName" column="invalid_person_name" jdbcType="VARCHAR"/>
+            <result property="invalidReason" column="invalid_reason" jdbcType="VARCHAR"/>
+            <result property="invalidDate" column="invalid_date" jdbcType="TIMESTAMP"/>
+            <result property="pastReceiveMethod" column="past_receive_method" jdbcType="VARCHAR"/>
+            <result property="receiptCheckStatus" column="receipt_check_status" jdbcType="VARCHAR"/>
+            <result property="receiptCheckPerson" column="receipt_check_person" jdbcType="VARCHAR"/>
+            <result property="receiptCheckTime" column="receipt_check_time" jdbcType="TIMESTAMP"/>
+            <result property="receiptCheckAdvice" column="receipt_check_advice" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,contract_id,rent_id,
+        rent_name,rent_start_date,rent_stop_date,
+        rent_money,desc,receive_id,
+        receive_person,receive_date,receive_status,
+        invalid_id,invalid_person_name,invalid_reason,
+        invalid_date,past_receive_method,receipt_check_status,
+        receipt_check_person,receipt_check_time,receipt_check_advice
+    </sql>
+</mapper>

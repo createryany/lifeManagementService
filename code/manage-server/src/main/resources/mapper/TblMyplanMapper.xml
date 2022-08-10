@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblMyplanMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblMyplan">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="planTheme" column="plan_theme" jdbcType="VARCHAR"/>
+            <result property="planAddr" column="plan_addr" jdbcType="VARCHAR"/>
+            <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+            <result property="stopDate" column="stop_date" jdbcType="TIMESTAMP"/>
+            <result property="planType" column="plan_type" jdbcType="VARCHAR"/>
+            <result property="planStatus" column="plan_status" jdbcType="CHAR"/>
+            <result property="planPrior" column="plan_prior" jdbcType="CHAR"/>
+            <result property="fieldBak" column="field_bak" jdbcType="CHAR"/>
+            <result property="planDesc" column="plan_desc" jdbcType="VARCHAR"/>
+            <result property="attachName" column="attach_name" jdbcType="VARCHAR"/>
+            <result property="attachUrl" column="attach_url" jdbcType="VARCHAR"/>
+            <result property="owner" column="owner" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="planAttach" column="plan_attach" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,plan_theme,plan_addr,
+        start_date,stop_date,plan_type,
+        plan_status,plan_prior,field_bak,
+        plan_desc,attach_name,attach_url,
+        owner,create_date,plan_attach
+    </sql>
+</mapper>

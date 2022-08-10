@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyTemporaryMoneySettingMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyTemporaryMoneySetting">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="temporaryMoneyName" column="temporary_money_name" jdbcType="VARCHAR"/>
+            <result property="upperMoneyId" column="upper_money_id" jdbcType="INTEGER"/>
+            <result property="priceUnit" column="price_unit" jdbcType="DOUBLE"/>
+            <result property="moneyDescription" column="money_description" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,temporary_money_name,upper_money_id,
+        price_unit,money_description,create_person,
+        create_date,update_person,update_date,
+        company
+    </sql>
+</mapper>

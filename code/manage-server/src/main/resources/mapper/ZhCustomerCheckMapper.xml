@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhCustomerCheckMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhCustomerCheck">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cellId" column="cell_id" jdbcType="VARCHAR"/>
+            <result property="checkDate" column="check_date" jdbcType="TIMESTAMP"/>
+            <result property="confirmDate" column="confirm_date" jdbcType="TIMESTAMP"/>
+            <result property="checkItemId" column="check_item_id" jdbcType="BIGINT"/>
+            <result property="checkItemName" column="check_item_name" jdbcType="VARCHAR"/>
+            <result property="isPass" column="is_pass" jdbcType="VARCHAR"/>
+            <result property="consumerAdvice" column="consumer_advice" jdbcType="VARCHAR"/>
+            <result property="houseKeeperAdvice" column="house_keeper_advice" jdbcType="VARCHAR"/>
+            <result property="checkPerson" column="check_person" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="inputPerson" column="input_person" jdbcType="VARCHAR"/>
+            <result property="inputDate" column="input_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="checkHouseType" column="check_house_type" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cell_id,check_date,
+        confirm_date,check_item_id,check_item_name,
+        is_pass,consumer_advice,house_keeper_advice,
+        check_person,remark,input_person,
+        input_date,update_person,update_date,
+        check_house_type
+    </sql>
+</mapper>

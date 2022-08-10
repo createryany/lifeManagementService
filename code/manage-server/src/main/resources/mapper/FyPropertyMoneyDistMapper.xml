@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyPropertyMoneyDistMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyPropertyMoneyDist">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="moneyId" column="money_id" jdbcType="INTEGER"/>
+            <result property="isPublicMoney" column="is_public_money" jdbcType="VARCHAR"/>
+            <result property="currentReadNumber" column="current_read_number" jdbcType="DOUBLE"/>
+            <result property="lastChargeUnit" column="last_charge_unit" jdbcType="DOUBLE"/>
+            <result property="floorFactor" column="floor_factor" jdbcType="DOUBLE"/>
+            <result property="useNumberMult" column="use_number_mult" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cell_id,money_id,
+        is_public_money,current_read_number,last_charge_unit,
+        floor_factor,use_number_mult
+    </sql>
+</mapper>

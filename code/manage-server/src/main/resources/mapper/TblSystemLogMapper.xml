@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblSystemLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblSystemLog">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="logContent" column="log_content" jdbcType="VARCHAR"/>
+            <result property="modelId" column="model_id" jdbcType="VARCHAR"/>
+            <result property="ipAddr" column="ip_addr" jdbcType="VARCHAR"/>
+            <result property="deptPrivileges" column="dept_privileges" jdbcType="VARCHAR"/>
+            <result property="operateId" column="operate_id" jdbcType="VARCHAR"/>
+            <result property="operateName" column="operate_name" jdbcType="VARCHAR"/>
+            <result property="deptId" column="dept_id" jdbcType="VARCHAR"/>
+            <result property="deptName" column="dept_name" jdbcType="VARCHAR"/>
+            <result property="operateDate" column="operate_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,log_content,model_id,
+        ip_addr,dept_privileges,operate_id,
+        operate_name,dept_id,dept_name,
+        operate_date
+    </sql>
+</mapper>

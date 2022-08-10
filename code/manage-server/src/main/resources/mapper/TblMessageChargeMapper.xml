@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblMessageChargeMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblMessageCharge">
+            <result property="chargeNumber" column="charge_number" jdbcType="VARCHAR"/>
+            <result property="chargeAccount" column="charge_account" jdbcType="VARCHAR"/>
+            <result property="chargeMoney" column="charge_money" jdbcType="DOUBLE"/>
+            <result property="chargeDesc" column="charge_desc" jdbcType="VARCHAR"/>
+            <result property="chargePerson" column="charge_person" jdbcType="VARCHAR"/>
+            <result property="chargeDate" column="charge_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        charge_number,charge_account,charge_money,
+        charge_desc,charge_person,charge_date
+    </sql>
+</mapper>

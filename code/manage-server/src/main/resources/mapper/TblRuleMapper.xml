@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblRuleMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblRule">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="useRange" column="use_range" jdbcType="VARCHAR"/>
+            <result property="category" column="category" jdbcType="BIGINT"/>
+            <result property="articleNumber" column="article_number" jdbcType="VARCHAR"/>
+            <result property="level" column="level" jdbcType="VARCHAR"/>
+            <result property="secretLevel" column="secret_level" jdbcType="VARCHAR"/>
+            <result property="titleWord" column="title_word" jdbcType="VARCHAR"/>
+            <result property="publishCompany" column="publish_company" jdbcType="VARCHAR"/>
+            <result property="attachName" column="attach_name" jdbcType="VARCHAR"/>
+            <result property="attachPath" column="attach_path" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="checkPerson" column="check_person" jdbcType="VARCHAR"/>
+            <result property="checkDate" column="check_date" jdbcType="TIMESTAMP"/>
+            <result property="checkAdvice" column="check_advice" jdbcType="VARCHAR"/>
+            <result property="allowUserCode" column="allow_user_code" jdbcType="VARCHAR"/>
+            <result property="allowUserName" column="allow_user_name" jdbcType="VARCHAR"/>
+            <result property="ruleAttach" column="rule_attach" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,content,
+        use_range,category,article_number,
+        level,secret_level,title_word,
+        publish_company,attach_name,attach_path,
+        status,create_person,create_date,
+        check_person,check_date,check_advice,
+        allow_user_code,allow_user_name,rule_attach
+    </sql>
+</mapper>

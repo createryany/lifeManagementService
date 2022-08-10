@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FySaleContractMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FySaleContract">
+            <id property="saleContractId" column="sale_contract_id" jdbcType="VARCHAR"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="contractMoney" column="contract_money" jdbcType="DOUBLE"/>
+            <result property="contractDate" column="contract_date" jdbcType="TIMESTAMP"/>
+            <result property="payMethod" column="pay_method" jdbcType="VARCHAR"/>
+            <result property="idNumber" column="id_number" jdbcType="VARCHAR"/>
+            <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+            <result property="onlinePhone" column="online_phone" jdbcType="VARCHAR"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="contractAttach" column="contract_attach" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        sale_contract_id,cell_id,contract_money,
+        contract_date,pay_method,id_number,
+        customer_name,online_phone,phone_number,
+        remark,contract_attach
+    </sql>
+</mapper>

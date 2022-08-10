@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblEmployeeContactMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblEmployeeContact">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="orderId" column="order_id" jdbcType="INTEGER"/>
+            <result property="categoryName" column="category_name" jdbcType="VARCHAR"/>
+            <result property="categoryId" column="category_id" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="workNum" column="work_num" jdbcType="VARCHAR"/>
+            <result property="dept" column="dept" jdbcType="VARCHAR"/>
+            <result property="role" column="role" jdbcType="VARCHAR"/>
+            <result property="position" column="position" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="VARCHAR"/>
+            <result property="birthday" column="birthday" jdbcType="VARCHAR"/>
+            <result property="officePhone" column="office_phone" jdbcType="VARCHAR"/>
+            <result property="fax" column="fax" jdbcType="VARCHAR"/>
+            <result property="movePhone" column="move_phone" jdbcType="VARCHAR"/>
+            <result property="homePhone" column="home_phone" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="qq" column="qq" jdbcType="VARCHAR"/>
+            <result property="wchat" column="wchat" jdbcType="VARCHAR"/>
+            <result property="innerMsn" column="inner_msn" jdbcType="VARCHAR"/>
+            <result property="addr" column="addr" jdbcType="VARCHAR"/>
+            <result property="postCode" column="post_code" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="createPersonId" column="create_person_id" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,order_id,category_name,
+        category_id,name,work_num,
+        dept,role,position,
+        gender,birthday,office_phone,
+        fax,move_phone,home_phone,
+        email,qq,wchat,
+        inner_msn,addr,post_code,
+        remark,create_person_id,create_person,
+        create_date
+    </sql>
+</mapper>

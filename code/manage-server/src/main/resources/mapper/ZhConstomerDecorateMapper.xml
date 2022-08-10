@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhConstomerDecorateMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhConstomerDecorate">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cellId" column="cell_id" jdbcType="VARCHAR"/>
+            <result property="proposer" column="proposer" jdbcType="VARCHAR"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="proposerDate" column="proposer_date" jdbcType="TIMESTAMP"/>
+            <result property="decorateContent" column="decorate_content" jdbcType="VARCHAR"/>
+            <result property="checkPerson" column="check_person" jdbcType="VARCHAR"/>
+            <result property="decorateEnsureMoney" column="decorate_ensure_money" jdbcType="DOUBLE"/>
+            <result property="checkDate" column="check_date" jdbcType="TIMESTAMP"/>
+            <result property="checkAdvice" column="check_advice" jdbcType="VARCHAR"/>
+            <result property="leaderPhone" column="leader_phone" jdbcType="VARCHAR"/>
+            <result property="executeCompany" column="execute_company" jdbcType="VARCHAR"/>
+            <result property="executeStartDate" column="execute_start_date" jdbcType="TIMESTAMP"/>
+            <result property="leader" column="leader" jdbcType="VARCHAR"/>
+            <result property="checkedPerson" column="checked_person" jdbcType="VARCHAR"/>
+            <result property="executeStopDate" column="execute_stop_date" jdbcType="TIMESTAMP"/>
+            <result property="checkedAdvice" column="checked_advice" jdbcType="VARCHAR"/>
+            <result property="checkedDate" column="checked_date" jdbcType="TIMESTAMP"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="identify" column="identify" jdbcType="CHAR"/>
+            <result property="confirmPerson" column="confirm_person" jdbcType="VARCHAR"/>
+            <result property="confirmDate" column="confirm_date" jdbcType="TIMESTAMP"/>
+            <result property="decorateAttach" column="decorate_attach" jdbcType="VARCHAR"/>
+            <result property="againstMoney" column="against_money" jdbcType="DOUBLE"/>
+            <result property="invalidPerson" column="invalid_person" jdbcType="VARCHAR"/>
+            <result property="invalidDate" column="invalid_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cell_id,proposer,
+        phone_number,proposer_date,decorate_content,
+        check_person,decorate_ensure_money,check_date,
+        check_advice,leader_phone,execute_company,
+        execute_start_date,leader,checked_person,
+        execute_stop_date,checked_advice,checked_date,
+        remark,status,create_person,
+        create_date,identify,confirm_person,
+        confirm_date,decorate_attach,against_money,
+        invalid_person,invalid_date
+    </sql>
+</mapper>

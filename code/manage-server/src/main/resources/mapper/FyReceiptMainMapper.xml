@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyReceiptMainMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyReceiptMain">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="receiveDate" column="receive_date" jdbcType="TIMESTAMP"/>
+            <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+            <result property="shouldPayTotal" column="should_pay_total" jdbcType="DOUBLE"/>
+            <result property="currentShouldReceive" column="current_should_receive" jdbcType="DOUBLE"/>
+            <result property="discountMoney" column="discount_money" jdbcType="DOUBLE"/>
+            <result property="receiveMethod" column="receive_method" jdbcType="VARCHAR"/>
+            <result property="isCustomer" column="is_customer" jdbcType="VARCHAR"/>
+            <result property="currentRealReceive" column="current_real_receive" jdbcType="DOUBLE"/>
+            <result property="temporaryMoneyId" column="temporary_money_id" jdbcType="BIGINT"/>
+            <result property="estateId" column="estate_id" jdbcType="INTEGER"/>
+            <result property="currentDelayMoney" column="current_delay_money" jdbcType="DOUBLE"/>
+            <result property="lastDelayMoney" column="last_delay_money" jdbcType="DOUBLE"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="receiveType" column="receive_type" jdbcType="CHAR"/>
+            <result property="receiptNumber" column="receipt_number" jdbcType="VARCHAR"/>
+            <result property="invoiceNumber" column="invoice_number" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="CHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="receivePerson" column="receive_person" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="operateDate" column="operate_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateReason" column="update_reason" jdbcType="VARCHAR"/>
+            <result property="receiptCheckStatus" column="receipt_check_status" jdbcType="VARCHAR"/>
+            <result property="receiptCheckPerson" column="receipt_check_person" jdbcType="VARCHAR"/>
+            <result property="receiptCheckTime" column="receipt_check_time" jdbcType="TIMESTAMP"/>
+            <result property="receiptCheckAdvice" column="receipt_check_advice" jdbcType="VARCHAR"/>
+            <result property="moneyCheckStatus" column="money_check_status" jdbcType="VARCHAR"/>
+            <result property="moneyCheckPerson" column="money_check_person" jdbcType="VARCHAR"/>
+            <result property="moneyCheckTime" column="money_check_time" jdbcType="TIMESTAMP"/>
+            <result property="moneyCheckAdvice" column="money_check_advice" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cell_id,receive_date,
+        customer_name,should_pay_total,current_should_receive,
+        discount_money,receive_method,is_customer,
+        current_real_receive,temporary_money_id,estate_id,
+        current_delay_money,last_delay_money,title,
+        receive_type,receipt_number,invoice_number,
+        status,remark,receive_person,
+        company,operate_date,update_person,
+        update_date,update_reason,receipt_check_status,
+        receipt_check_person,receipt_check_time,receipt_check_advice,
+        money_check_status,money_check_person,money_check_time,
+        money_check_advice
+    </sql>
+</mapper>

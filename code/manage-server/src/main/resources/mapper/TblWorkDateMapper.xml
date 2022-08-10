@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblWorkDateMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblWorkDate">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="dt" column="dt" jdbcType="TIMESTAMP"/>
+            <result property="weekday" column="weekday" jdbcType="INTEGER"/>
+            <result property="isWork" column="is_work" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,dt,weekday,
+        is_work
+    </sql>
+</mapper>

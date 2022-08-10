@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblVoteSubjectMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblVoteSubject">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="projectId" column="project_id" jdbcType="INTEGER"/>
+            <result property="subjectName" column="subject_name" jdbcType="VARCHAR"/>
+            <result property="inputRecordPerson" column="input_record_person" jdbcType="VARCHAR"/>
+            <result property="inputRecordDate" column="input_record_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,project_id,subject_name,
+        input_record_person,input_record_date
+    </sql>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyEstateOutDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyEstateOutDetail">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="chargeDate" column="charge_date" jdbcType="TIMESTAMP"/>
+            <result property="estateId" column="estate_id" jdbcType="INTEGER"/>
+            <result property="outputMainProject" column="output_main_project" jdbcType="VARCHAR"/>
+            <result property="outputSubProject" column="output_sub_project" jdbcType="INTEGER"/>
+            <result property="outputMoney" column="output_money" jdbcType="DOUBLE"/>
+            <result property="outputMoneyYear" column="output_money_year" jdbcType="DOUBLE"/>
+            <result property="outputMoneyMain" column="output_money_main" jdbcType="DOUBLE"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="desc" column="desc" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="nextReceivePersonId" column="next_receive_person_id" jdbcType="VARCHAR"/>
+            <result property="nextReceivePersonName" column="next_receive_person_name" jdbcType="VARCHAR"/>
+            <result property="sendCheckDate" column="send_check_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,charge_date,estate_id,
+        output_main_project,output_sub_project,output_money,
+        output_money_year,output_money_main,status,
+        desc,create_person,create_date,
+        update_person,update_date,next_receive_person_id,
+        next_receive_person_name,send_check_date
+    </sql>
+</mapper>

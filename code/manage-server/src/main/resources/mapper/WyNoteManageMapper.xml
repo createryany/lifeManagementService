@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyNoteManageMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyNoteManage">
+            <id property="noteId" column="note_id" jdbcType="VARCHAR"/>
+            <result property="notePrefix" column="note_prefix" jdbcType="VARCHAR"/>
+            <result property="noteSerialNumber" column="note_serial_number" jdbcType="VARCHAR"/>
+            <result property="noteStatus" column="note_status" jdbcType="VARCHAR"/>
+            <result property="noteDesc" column="note_desc" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="VARCHAR"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="assignPersonId" column="assign_person_id" jdbcType="VARCHAR"/>
+            <result property="assignPersonName" column="assign_person_name" jdbcType="VARCHAR"/>
+            <result property="assignDate" column="assign_date" jdbcType="TIMESTAMP"/>
+            <result property="printPersonId" column="print_person_id" jdbcType="VARCHAR"/>
+            <result property="printPersonName" column="print_person_name" jdbcType="VARCHAR"/>
+            <result property="printDate" column="print_date" jdbcType="TIMESTAMP"/>
+            <result property="noteType" column="note_type" jdbcType="VARCHAR"/>
+            <result property="receiveMoneyId" column="receive_money_id" jdbcType="VARCHAR"/>
+            <result property="invalidReason" column="invalid_reason" jdbcType="VARCHAR"/>
+            <result property="invalidPersonId" column="invalid_person_id" jdbcType="VARCHAR"/>
+            <result property="invalidPersonName" column="invalid_person_name" jdbcType="VARCHAR"/>
+            <result property="invalidDate" column="invalid_date" jdbcType="TIMESTAMP"/>
+            <result property="invalidConfirmPerson" column="invalid_confirm_person" jdbcType="VARCHAR"/>
+            <result property="invalidConfirmDate" column="invalid_confirm_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        note_id,note_prefix,note_serial_number,
+        note_status,note_desc,user_id,
+        user_name,create_person,create_date,
+        update_person,update_date,assign_person_id,
+        assign_person_name,assign_date,print_person_id,
+        print_person_name,print_date,note_type,
+        receive_money_id,invalid_reason,invalid_person_id,
+        invalid_person_name,invalid_date,invalid_confirm_person,
+        invalid_confirm_date
+    </sql>
+</mapper>

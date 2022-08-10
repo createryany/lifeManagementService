@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyEstateTemporaryMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyEstateTemporary">
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="estateCode" column="estate_code" jdbcType="VARCHAR"/>
+            <result property="estateName" column="estate_name" jdbcType="VARCHAR"/>
+            <result property="buildingCode" column="building_code" jdbcType="VARCHAR"/>
+            <result property="buildingName" column="building_name" jdbcType="VARCHAR"/>
+            <result property="unitCode" column="unit_code" jdbcType="VARCHAR"/>
+            <result property="unitName" column="unit_name" jdbcType="VARCHAR"/>
+            <result property="cellCode" column="cell_code" jdbcType="VARCHAR"/>
+            <result property="cellName" column="cell_name" jdbcType="VARCHAR"/>
+            <result property="buildArea" column="build_area" jdbcType="DOUBLE"/>
+            <result property="floorNumber" column="floor_number" jdbcType="INTEGER"/>
+            <result property="function" column="function" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="operatePerson" column="operate_person" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        company,estate_code,estate_name,
+        building_code,building_name,unit_code,
+        unit_name,cell_code,cell_name,
+        build_area,floor_number,function,
+        remark,operate_person
+    </sql>
+</mapper>

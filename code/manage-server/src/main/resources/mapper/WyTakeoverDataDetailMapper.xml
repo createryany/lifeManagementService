@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyTakeoverDataDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyTakeoverDataDetail">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="takeoverId" column="takeover_id" jdbcType="INTEGER"/>
+            <result property="dataName" column="data_name" jdbcType="VARCHAR"/>
+            <result property="dataCopies" column="data_copies" jdbcType="INTEGER"/>
+            <result property="dataPages" column="data_pages" jdbcType="INTEGER"/>
+            <result property="dataType" column="data_type" jdbcType="BIGINT"/>
+            <result property="fileNumber" column="file_number" jdbcType="VARCHAR"/>
+            <result property="handoverPerson" column="handover_person" jdbcType="VARCHAR"/>
+            <result property="receivePerson" column="receive_person" jdbcType="VARCHAR"/>
+            <result property="receiveDate" column="receive_date" jdbcType="TIMESTAMP"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,takeover_id,data_name,
+        data_copies,data_pages,data_type,
+        file_number,handover_person,receive_person,
+        receive_date,remark
+    </sql>
+</mapper>

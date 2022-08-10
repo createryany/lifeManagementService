@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblDbsourceMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblDbsource">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="sourceName" column="source_name" jdbcType="VARCHAR"/>
+            <result property="sourceDesc" column="source_desc" jdbcType="VARCHAR"/>
+            <result property="sourceType" column="source_type" jdbcType="CHAR"/>
+            <result property="sourceClass" column="source_class" jdbcType="VARCHAR"/>
+            <result property="idClear" column="id_clear" jdbcType="CHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="belongProduct" column="belong_product" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,source_name,source_desc,
+        source_type,source_class,id_clear,
+        update_date,belong_product
+    </sql>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyFireExerciseMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyFireExercise">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="unit" column="unit" jdbcType="VARCHAR"/>
+            <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+            <result property="stopDate" column="stop_date" jdbcType="TIMESTAMP"/>
+            <result property="exercisePurpose" column="exercise_purpose" jdbcType="VARCHAR"/>
+            <result property="joinPersons" column="join_persons" jdbcType="INTEGER"/>
+            <result property="assistantUnit" column="assistant_unit" jdbcType="VARCHAR"/>
+            <result property="exerciseContent" column="exercise_content" jdbcType="VARCHAR"/>
+            <result property="exerciseResult" column="exercise_result" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,unit,start_date,
+        stop_date,exercise_purpose,join_persons,
+        assistant_unit,exercise_content,exercise_result,
+        remark,company
+    </sql>
+</mapper>

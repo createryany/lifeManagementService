@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhCustomerServiceMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhCustomerService">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="proposer" column="proposer" jdbcType="VARCHAR"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="appealDate" column="appeal_date" jdbcType="TIMESTAMP"/>
+            <result property="appealEvent" column="appeal_event" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="serviceType" column="service_type" jdbcType="BIGINT"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="identify" column="identify" jdbcType="CHAR"/>
+            <result property="checkPerson" column="check_person" jdbcType="VARCHAR"/>
+            <result property="checkDate" column="check_date" jdbcType="TIMESTAMP"/>
+            <result property="checkAdvice" column="check_advice" jdbcType="VARCHAR"/>
+            <result property="serviceMoney" column="service_money" jdbcType="DOUBLE"/>
+            <result property="returnVisitPerson" column="return_visit_person" jdbcType="VARCHAR"/>
+            <result property="returnVisitDate" column="return_visit_date" jdbcType="TIMESTAMP"/>
+            <result property="isSatisfy" column="is_satisfy" jdbcType="CHAR"/>
+            <result property="customerEvaluate" column="customer_evaluate" jdbcType="VARCHAR"/>
+            <result property="referAttach" column="refer_attach" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cell_id,proposer,
+        phone_number,appeal_date,appeal_event,
+        status,service_type,create_person,
+        create_date,identify,check_person,
+        check_date,check_advice,service_money,
+        return_visit_person,return_visit_date,is_satisfy,
+        customer_evaluate,refer_attach
+    </sql>
+</mapper>

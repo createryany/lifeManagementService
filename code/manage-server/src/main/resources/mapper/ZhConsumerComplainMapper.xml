@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhConsumerComplainMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhConsumerComplain">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cellId" column="cell_id" jdbcType="VARCHAR"/>
+            <result property="complainPerson" column="complain_person" jdbcType="VARCHAR"/>
+            <result property="complainPhone" column="complain_phone" jdbcType="VARCHAR"/>
+            <result property="complainDate" column="complain_date" jdbcType="TIMESTAMP"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="receptionPerson" column="reception_person" jdbcType="VARCHAR"/>
+            <result property="complainType" column="complain_type" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="startAcceptPerson" column="start_accept_person" jdbcType="VARCHAR"/>
+            <result property="startAcceptDate" column="start_accept_date" jdbcType="TIMESTAMP"/>
+            <result property="acceptResult" column="accept_result" jdbcType="VARCHAR"/>
+            <result property="acceptFinishPerson" column="accept_finish_person" jdbcType="VARCHAR"/>
+            <result property="acceptFinishDate" column="accept_finish_date" jdbcType="TIMESTAMP"/>
+            <result property="datasource" column="datasource" jdbcType="CHAR"/>
+            <result property="referAttach" column="refer_attach" jdbcType="VARCHAR"/>
+            <result property="returnVisitPerson" column="return_visit_person" jdbcType="VARCHAR"/>
+            <result property="returnVisitDate" column="return_visit_date" jdbcType="TIMESTAMP"/>
+            <result property="isSatisfy" column="is_satisfy" jdbcType="CHAR"/>
+            <result property="customerEvaluate" column="customer_evaluate" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cell_id,complain_person,
+        complain_phone,complain_date,phone_number,
+        reception_person,complain_type,status,
+        start_accept_person,start_accept_date,accept_result,
+        accept_finish_person,accept_finish_date,datasource,
+        refer_attach,return_visit_person,return_visit_date,
+        is_satisfy,customer_evaluate,create_person,
+        create_date
+    </sql>
+</mapper>

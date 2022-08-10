@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyPublicBoxUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyPublicBoxUser">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="publicBoxId" column="public_box_id" jdbcType="VARCHAR"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,public_box_id,cell_id
+    </sql>
+</mapper>

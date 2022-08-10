@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyEstateOutProjectMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyEstateOutProject">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="projectName" column="project_name" jdbcType="VARCHAR"/>
+            <result property="parentOutProjectId" column="parent_out_project_id" jdbcType="INTEGER"/>
+            <result property="belongMainProjecct" column="belong_main_projecct" jdbcType="VARCHAR"/>
+            <result property="desc" column="desc" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,project_name,parent_out_project_id,
+        belong_main_projecct,desc,create_person,
+        create_date,update_person,update_date
+    </sql>
+</mapper>

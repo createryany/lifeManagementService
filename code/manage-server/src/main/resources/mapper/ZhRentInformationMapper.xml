@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhRentInformationMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhRentInformation">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="rentCode" column="rent_code" jdbcType="VARCHAR"/>
+            <result property="rentName" column="rent_name" jdbcType="VARCHAR"/>
+            <result property="memberOfRight" column="member_of_right" jdbcType="VARCHAR"/>
+            <result property="rentType" column="rent_type" jdbcType="BIGINT"/>
+            <result property="contact" column="contact" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="CHAR"/>
+            <result property="homeNumber" column="home_number" jdbcType="VARCHAR"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="addr" column="addr" jdbcType="VARCHAR"/>
+            <result property="certificateType" column="certificate_type" jdbcType="BIGINT"/>
+            <result property="mainSale" column="main_sale" jdbcType="BIGINT"/>
+            <result property="certificateNumber" column="certificate_number" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="CHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="pictureUrl" column="picture_url" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="pwd" column="pwd" jdbcType="VARCHAR"/>
+            <result property="rentAttach" column="rent_attach" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,rent_code,rent_name,
+        member_of_right,rent_type,contact,
+        gender,home_number,phone_number,
+        addr,certificate_type,main_sale,
+        certificate_number,status,remark,
+        picture_url,create_person,create_date,
+        update_person,update_date,company,
+        pwd,rent_attach
+    </sql>
+</mapper>

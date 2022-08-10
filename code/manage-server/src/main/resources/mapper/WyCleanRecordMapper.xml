@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyCleanRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyCleanRecord">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="projectId" column="project_id" jdbcType="VARCHAR"/>
+            <result property="cleanCondition" column="clean_condition" jdbcType="VARCHAR"/>
+            <result property="cleanDate" column="clean_date" jdbcType="VARCHAR"/>
+            <result property="cleanPerson" column="clean_person" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,project_id,clean_condition,
+        clean_date,clean_person,remark
+    </sql>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblTodoMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblTodo">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="privileges" column="privileges" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="CHAR"/>
+            <result property="url" column="url" jdbcType="VARCHAR"/>
+            <result property="showNumber" column="show_number" jdbcType="INTEGER"/>
+            <result property="days" column="days" jdbcType="INTEGER"/>
+            <result property="belongProduct" column="belong_product" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,privileges,
+        status,url,show_number,
+        days,belong_product
+    </sql>
+</mapper>

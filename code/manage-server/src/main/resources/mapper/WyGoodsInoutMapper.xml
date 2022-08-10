@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyGoodsInoutMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyGoodsInout">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="inoutDate" column="inout_date" jdbcType="TIMESTAMP"/>
+            <result property="carryPerson" column="carry_person" jdbcType="VARCHAR"/>
+            <result property="idCard" column="id_card" jdbcType="VARCHAR"/>
+            <result property="inputType" column="input_type" jdbcType="CHAR"/>
+            <result property="liveAddr" column="live_addr" jdbcType="VARCHAR"/>
+            <result property="inoutUnit" column="inout_unit" jdbcType="VARCHAR"/>
+            <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+            <result property="inoutGoods" column="inout_goods" jdbcType="VARCHAR"/>
+            <result property="agent" column="agent" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,inout_date,carry_person,
+        id_card,input_type,live_addr,
+        inout_unit,customer_name,inout_goods,
+        agent,remark,company
+    </sql>
+</mapper>

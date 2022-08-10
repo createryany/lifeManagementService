@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyHistoryMoneyTempMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyHistoryMoneyTemp">
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="cellName" column="cell_name" jdbcType="VARCHAR"/>
+            <result property="buildArea" column="build_area" jdbcType="DOUBLE"/>
+            <result property="priceUnit" column="price_unit" jdbcType="DOUBLE"/>
+            <result property="money" column="money" jdbcType="DOUBLE"/>
+            <result property="moneyStartDate" column="money_start_date" jdbcType="TIMESTAMP"/>
+            <result property="moneyStopDate" column="money_stop_date" jdbcType="TIMESTAMP"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="operatePerson" column="operate_person" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cell_id,cell_name,build_area,
+        price_unit,money,money_start_date,
+        money_stop_date,remark,operate_person
+    </sql>
+</mapper>

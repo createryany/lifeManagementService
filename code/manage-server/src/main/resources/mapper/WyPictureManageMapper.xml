@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyPictureManageMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyPictureManage">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="pictureName" column="picture_name" jdbcType="VARCHAR"/>
+            <result property="pictureType" column="picture_type" jdbcType="BIGINT"/>
+            <result property="desc" column="desc" jdbcType="VARCHAR"/>
+            <result property="pictureAttach" column="picture_attach" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+            <result property="uploadPerson" column="upload_person" jdbcType="VARCHAR"/>
+            <result property="uploadDate" column="upload_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,picture_name,picture_type,
+        desc,picture_attach,company,
+        upload_person,upload_date,update_person,
+        update_date
+    </sql>
+</mapper>

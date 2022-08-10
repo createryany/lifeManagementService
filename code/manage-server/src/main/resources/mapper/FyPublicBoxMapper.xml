@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyPublicBoxMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyPublicBox">
+            <result property="publicBoxId" column="public_box_id" jdbcType="VARCHAR"/>
+            <result property="moneyId" column="money_id" jdbcType="INTEGER"/>
+            <result property="publicBoxReadNumber" column="public_box_read_number" jdbcType="DOUBLE"/>
+            <result property="shareMethod" column="share_method" jdbcType="VARCHAR"/>
+            <result property="publicBoxState" column="public_box_state" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        public_box_id,money_id,public_box_read_number,
+        share_method,public_box_state
+    </sql>
+</mapper>

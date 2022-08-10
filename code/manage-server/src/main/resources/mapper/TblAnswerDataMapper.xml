@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblAnswerDataMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblAnswerData">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="subjectId" column="subject_id" jdbcType="INTEGER"/>
+            <result property="answerName" column="answer_name" jdbcType="VARCHAR"/>
+            <result property="answerType" column="answer_type" jdbcType="VARCHAR"/>
+            <result property="inputRecordPerson" column="input_record_person" jdbcType="VARCHAR"/>
+            <result property="inputRecordDate" column="input_record_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,subject_id,answer_name,
+        answer_type,input_record_person,input_record_date
+    </sql>
+</mapper>

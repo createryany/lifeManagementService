@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyCommitteeMettingMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyCommitteeMetting">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="meetingDate" column="meeting_date" jdbcType="TIMESTAMP"/>
+            <result property="meetingTitle" column="meeting_title" jdbcType="VARCHAR"/>
+            <result property="meetingAddr" column="meeting_addr" jdbcType="VARCHAR"/>
+            <result property="meetingContent" column="meeting_content" jdbcType="VARCHAR"/>
+            <result property="hoster" column="hoster" jdbcType="VARCHAR"/>
+            <result property="recorder" column="recorder" jdbcType="VARCHAR"/>
+            <result property="joiner" column="joiner" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,meeting_date,meeting_title,
+        meeting_addr,meeting_content,hoster,
+        recorder,joiner,remark,
+        company
+    </sql>
+</mapper>

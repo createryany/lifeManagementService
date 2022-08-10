@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyStandingBookMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyStandingBook">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="standingBookName" column="standing_book_name" jdbcType="VARCHAR"/>
+            <result property="associateCostCode" column="associate_cost_code" jdbcType="INTEGER"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="creationDate" column="creation_date" jdbcType="TIMESTAMP"/>
+            <result property="creationPerson" column="creation_person" jdbcType="VARCHAR"/>
+            <result property="associateStandingBookId" column="associate_standing_book_id" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,standing_book_name,associate_cost_code,
+        remark,creation_date,creation_person,
+        associate_standing_book_id,company
+    </sql>
+</mapper>

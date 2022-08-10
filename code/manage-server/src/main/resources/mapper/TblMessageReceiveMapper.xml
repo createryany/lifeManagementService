@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblMessageReceiveMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblMessageReceive">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="extendPhone" column="extend_phone" jdbcType="VARCHAR"/>
+            <result property="messageContent" column="message_content" jdbcType="VARCHAR"/>
+            <result property="replyDate" column="reply_date" jdbcType="TIMESTAMP"/>
+            <result property="positionOrder" column="position_order" jdbcType="VARCHAR"/>
+            <result property="receiveDate" column="receive_date" jdbcType="TIMESTAMP"/>
+            <result property="readTag" column="read_tag" jdbcType="TINYINT"/>
+            <result property="readDate" column="read_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,phone,extend_phone,
+        message_content,reply_date,position_order,
+        receive_date,read_tag,read_date
+    </sql>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblPrintParamMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblPrintParam">
+            <id property="printId" column="print_id" jdbcType="VARCHAR"/>
+            <result property="printName" column="print_name" jdbcType="VARCHAR"/>
+            <result property="printValue" column="print_value" jdbcType="VARCHAR"/>
+            <result property="printDesc" column="print_desc" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        print_id,print_name,print_value,
+        print_desc
+    </sql>
+</mapper>

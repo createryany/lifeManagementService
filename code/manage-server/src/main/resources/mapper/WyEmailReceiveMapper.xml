@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyEmailReceiveMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyEmailReceive">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="receiveDate" column="receive_date" jdbcType="TIMESTAMP"/>
+            <result property="getDate" column="get_date" jdbcType="TIMESTAMP"/>
+            <result property="emailType" column="email_type" jdbcType="VARCHAR"/>
+            <result property="receiveUnit" column="receive_unit" jdbcType="VARCHAR"/>
+            <result property="number" column="number" jdbcType="INTEGER"/>
+            <result property="getPerson" column="get_person" jdbcType="VARCHAR"/>
+            <result property="cardType" column="card_type" jdbcType="VARCHAR"/>
+            <result property="card" column="card" jdbcType="VARCHAR"/>
+            <result property="agent" column="agent" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,receive_date,get_date,
+        email_type,receive_unit,number,
+        get_person,card_type,card,
+        agent,remark,company
+    </sql>
+</mapper>

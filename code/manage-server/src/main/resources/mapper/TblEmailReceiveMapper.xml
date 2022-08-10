@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblEmailReceiveMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblEmailReceive">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="emailSendId" column="email_send_id" jdbcType="BIGINT"/>
+            <result property="receiveId" column="receive_id" jdbcType="VARCHAR"/>
+            <result property="receivePersonCode" column="receive_person_code" jdbcType="VARCHAR"/>
+            <result property="receivePersonName" column="receive_person_name" jdbcType="VARCHAR"/>
+            <result property="emailTitle" column="email_title" jdbcType="VARCHAR"/>
+            <result property="emailContent" column="email_content" jdbcType="VARCHAR"/>
+            <result property="importantGrade" column="important_grade" jdbcType="CHAR"/>
+            <result property="status" column="status" jdbcType="CHAR"/>
+            <result property="isDelete" column="is_delete" jdbcType="CHAR"/>
+            <result property="isSecretSend" column="is_secret_send" jdbcType="CHAR"/>
+            <result property="emailAttach" column="email_attach" jdbcType="VARCHAR"/>
+            <result property="receiveType" column="receive_type" jdbcType="CHAR"/>
+            <result property="sendPersonId" column="send_person_id" jdbcType="VARCHAR"/>
+            <result property="sendPersonName" column="send_person_name" jdbcType="VARCHAR"/>
+            <result property="sendDate" column="send_date" jdbcType="TIMESTAMP"/>
+            <result property="receiveDate" column="receive_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,email_send_id,receive_id,
+        receive_person_code,receive_person_name,email_title,
+        email_content,important_grade,status,
+        is_delete,is_secret_send,email_attach,
+        receive_type,send_person_id,send_person_name,
+        send_date,receive_date
+    </sql>
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhRentContractMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhRentContract">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="contractId" column="contract_id" jdbcType="VARCHAR"/>
+            <result property="signDate" column="sign_date" jdbcType="TIMESTAMP"/>
+            <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+            <result property="stopDate" column="stop_date" jdbcType="TIMESTAMP"/>
+            <result property="rentId" column="rent_id" jdbcType="INTEGER"/>
+            <result property="contact" column="contact" jdbcType="VARCHAR"/>
+            <result property="startRentDate" column="start_rent_date" jdbcType="TIMESTAMP"/>
+            <result property="stopRentDate" column="stop_rent_date" jdbcType="TIMESTAMP"/>
+            <result property="contractRentMoney" column="contract_rent_money" jdbcType="DOUBLE"/>
+            <result property="receiveArea" column="receive_area" jdbcType="DOUBLE"/>
+            <result property="contractStatus" column="contract_status" jdbcType="CHAR"/>
+            <result property="ensureMoney" column="ensure_money" jdbcType="DOUBLE"/>
+            <result property="ensureMoneyDesc" column="ensure_money_desc" jdbcType="VARCHAR"/>
+            <result property="contractAttach" column="contract_attach" jdbcType="VARCHAR"/>
+            <result property="rentDays" column="rent_days" jdbcType="INTEGER"/>
+            <result property="adminMoney" column="admin_money" jdbcType="DOUBLE"/>
+            <result property="isRentMoney" column="is_rent_money" jdbcType="CHAR"/>
+            <result property="payMethod" column="pay_method" jdbcType="BIGINT"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="createPerson" column="create_person" jdbcType="VARCHAR"/>
+            <result property="createDate" column="create_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePerson" column="update_person" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="attractPersonId" column="attract_person_id" jdbcType="VARCHAR"/>
+            <result property="attractPersonName" column="attract_person_name" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,contract_id,sign_date,
+        start_date,stop_date,rent_id,
+        contact,start_rent_date,stop_rent_date,
+        contract_rent_money,receive_area,contract_status,
+        ensure_money,ensure_money_desc,contract_attach,
+        rent_days,admin_money,is_rent_money,
+        pay_method,remark,create_person,
+        create_date,update_person,update_date,
+        attract_person_id,attract_person_name,company
+    </sql>
+</mapper>

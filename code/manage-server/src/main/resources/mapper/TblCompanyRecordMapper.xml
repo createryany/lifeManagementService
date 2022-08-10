@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblCompanyRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblCompanyRecord">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="companyName" column="company_name" jdbcType="VARCHAR"/>
+            <result property="companyAdd" column="company_add" jdbcType="VARCHAR"/>
+            <result property="companyType" column="company_type" jdbcType="VARCHAR"/>
+            <result property="compantGrade" column="compant_grade" jdbcType="VARCHAR"/>
+            <result property="parentCompany" column="parent_company" jdbcType="VARCHAR"/>
+            <result property="leader" column="leader" jdbcType="VARCHAR"/>
+            <result property="postCode" column="post_code" jdbcType="VARCHAR"/>
+            <result property="companyPhone" column="company_phone" jdbcType="VARCHAR"/>
+            <result property="faxNumber" column="fax_number" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="simpleDesc" column="simple_desc" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="inputPerson" column="input_person" jdbcType="VARCHAR"/>
+            <result property="inputTime" column="input_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,company_name,company_add,
+        company_type,compant_grade,parent_company,
+        leader,post_code,company_phone,
+        fax_number,email,simple_desc,
+        remark,input_person,input_time
+    </sql>
+</mapper>

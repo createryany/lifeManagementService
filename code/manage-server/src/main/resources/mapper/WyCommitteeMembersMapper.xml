@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyCommitteeMembersMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyCommitteeMembers">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="memberCode" column="member_code" jdbcType="VARCHAR"/>
+            <result property="memberName" column="member_name" jdbcType="VARCHAR"/>
+            <result property="memberDuty" column="member_duty" jdbcType="VARCHAR"/>
+            <result property="birthday" column="birthday" jdbcType="TIMESTAMP"/>
+            <result property="gender" column="gender" jdbcType="VARCHAR"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="workPlace" column="work_place" jdbcType="VARCHAR"/>
+            <result property="selfIntroduce" column="self_introduce" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,member_code,member_name,
+        member_duty,birthday,gender,
+        phone_number,work_place,self_introduce,
+        remark,company
+    </sql>
+</mapper>

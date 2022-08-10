@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.TblTypeMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.TblType">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="typeName" column="type_name" jdbcType="VARCHAR"/>
+            <result property="typeStatus" column="type_status" jdbcType="CHAR"/>
+            <result property="belongProduct" column="belong_product" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,type_name,type_status,
+        belong_product
+    </sql>
+</mapper>

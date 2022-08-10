@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyPropertyTakeoverDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyPropertyTakeoverDetail">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="takeoverId" column="takeover_id" jdbcType="INTEGER"/>
+            <result property="projectName" column="project_name" jdbcType="VARCHAR"/>
+            <result property="checked" column="checked" jdbcType="VARCHAR"/>
+            <result property="checkedDate" column="checked_date" jdbcType="TIMESTAMP"/>
+            <result property="checkedResult" column="checked_result" jdbcType="VARCHAR"/>
+            <result property="finishDate" column="finish_date" jdbcType="TIMESTAMP"/>
+            <result property="finishCondition" column="finish_condition" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,takeover_id,project_name,
+        checked,checked_date,checked_result,
+        finish_date,finish_condition,remark
+    </sql>
+</mapper>

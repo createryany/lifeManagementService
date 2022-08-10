@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhRentShareMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhRentShare">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="contractId" column="contract_id" jdbcType="INTEGER"/>
+            <result property="rentName" column="rent_name" jdbcType="VARCHAR"/>
+            <result property="shareRentPerson" column="share_rent_person" jdbcType="VARCHAR"/>
+            <result property="shareCellId" column="share_cell_id" jdbcType="VARCHAR"/>
+            <result property="shareCellName" column="share_cell_name" jdbcType="VARCHAR"/>
+            <result property="contact" column="contact" jdbcType="VARCHAR"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+            <result property="stopDate" column="stop_date" jdbcType="TIMESTAMP"/>
+            <result property="saleRange" column="sale_range" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="operateId" column="operate_id" jdbcType="VARCHAR"/>
+            <result property="operatePerson" column="operate_person" jdbcType="VARCHAR"/>
+            <result property="operateDate" column="operate_date" jdbcType="TIMESTAMP"/>
+            <result property="updatePersonId" column="update_person_id" jdbcType="VARCHAR"/>
+            <result property="updatePersonName" column="update_person_name" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateReason" column="update_reason" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,contract_id,rent_name,
+        share_rent_person,share_cell_id,share_cell_name,
+        contact,phone_number,start_date,
+        stop_date,sale_range,remark,
+        operate_id,operate_person,operate_date,
+        update_person_id,update_person_name,update_date,
+        update_reason
+    </sql>
+</mapper>

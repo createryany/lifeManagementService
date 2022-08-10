@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhCustomerMembersMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhCustomerMembers">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="belongCustomerId" column="belong_customer_id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="birdate" column="birdate" jdbcType="TIMESTAMP"/>
+            <result property="gender" column="gender" jdbcType="VARCHAR"/>
+            <result property="ration" column="ration" jdbcType="VARCHAR"/>
+            <result property="certificateType" column="certificate_type" jdbcType="VARCHAR"/>
+            <result property="certificateNumber" column="certificate_number" jdbcType="VARCHAR"/>
+            <result property="education" column="education" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="workPlace" column="work_place" jdbcType="VARCHAR"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="picture" column="picture" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,belong_customer_id,name,
+        birdate,gender,ration,
+        certificate_type,certificate_number,education,
+        remark,work_place,phone_number,
+        picture
+    </sql>
+</mapper>

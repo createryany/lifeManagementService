@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhCsHandleResultMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhCsHandleResult">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="serviceId" column="service_id" jdbcType="INTEGER"/>
+            <result property="transactorId" column="transactor_id" jdbcType="VARCHAR"/>
+            <result property="transactorName" column="transactor_name" jdbcType="VARCHAR"/>
+            <result property="isLeader" column="is_leader" jdbcType="CHAR"/>
+            <result property="relationCompany" column="relation_company" jdbcType="VARCHAR"/>
+            <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>
+            <result property="handleStartDate" column="handle_start_date" jdbcType="TIMESTAMP"/>
+            <result property="handleStopDate" column="handle_stop_date" jdbcType="TIMESTAMP"/>
+            <result property="handleResult" column="handle_result" jdbcType="VARCHAR"/>
+            <result property="handleFinishAttach" column="handle_finish_attach" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,service_id,transactor_id,
+        transactor_name,is_leader,relation_company,
+        phone_number,handle_start_date,handle_stop_date,
+        handle_result,handle_finish_attach
+    </sql>
+</mapper>

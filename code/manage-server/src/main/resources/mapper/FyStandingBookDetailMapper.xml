@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.FyStandingBookDetailMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FyStandingBookDetail">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="standingBookId" column="standing_book_id" jdbcType="INTEGER"/>
+            <result property="cellId" column="cell_id" jdbcType="INTEGER"/>
+            <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+            <result property="boxId" column="box_id" jdbcType="VARCHAR"/>
+            <result property="chargeUnit" column="charge_unit" jdbcType="DOUBLE"/>
+            <result property="priceUnit" column="price_unit" jdbcType="DOUBLE"/>
+            <result property="lastReadNumber" column="last_read_number" jdbcType="DOUBLE"/>
+            <result property="currentReadNumber" column="current_read_number" jdbcType="DOUBLE"/>
+            <result property="currentUseNumber" column="current_use_number" jdbcType="DOUBLE"/>
+            <result property="shouldPay" column="should_pay" jdbcType="DOUBLE"/>
+            <result property="lastPayStopDate" column="last_pay_stop_date" jdbcType="TIMESTAMP"/>
+            <result property="lastPayStartDate" column="last_pay_start_date" jdbcType="TIMESTAMP"/>
+            <result property="currentPayStopDate" column="current_pay_stop_date" jdbcType="TIMESTAMP"/>
+            <result property="currentPayLimitDate" column="current_pay_limit_date" jdbcType="TIMESTAMP"/>
+            <result property="costIdentify" column="cost_identify" jdbcType="CHAR"/>
+            <result property="receiveIdentify" column="receive_identify" jdbcType="VARCHAR"/>
+            <result property="receiveId" column="receive_id" jdbcType="VARCHAR"/>
+            <result property="refundNumber" column="refund_number" jdbcType="INTEGER"/>
+            <result property="receiveCycle" column="receive_cycle" jdbcType="INTEGER"/>
+            <result property="derateMoney" column="derate_money" jdbcType="DOUBLE"/>
+            <result property="shouldReceive" column="should_receive" jdbcType="DOUBLE"/>
+            <result property="invalidNumber" column="invalid_number" jdbcType="INTEGER"/>
+            <result property="floorFactor" column="floor_factor" jdbcType="DOUBLE"/>
+            <result property="derateDelayMoney" column="derate_delay_money" jdbcType="DOUBLE"/>
+            <result property="payMult" column="pay_mult" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,standing_book_id,cell_id,
+        customer_name,box_id,charge_unit,
+        price_unit,last_read_number,current_read_number,
+        current_use_number,should_pay,last_pay_stop_date,
+        last_pay_start_date,current_pay_stop_date,current_pay_limit_date,
+        cost_identify,receive_identify,receive_id,
+        refund_number,receive_cycle,derate_money,
+        should_receive,invalid_number,floor_factor,
+        derate_delay_money,pay_mult
+    </sql>
+</mapper>

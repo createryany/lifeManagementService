@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.WyVegetationInformationMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.WyVegetationInformation">
+            <id property="vegetationId" column="vegetation_id" jdbcType="VARCHAR"/>
+            <result property="vegetationName" column="vegetation_name" jdbcType="VARCHAR"/>
+            <result property="vegetationType" column="vegetation_type" jdbcType="VARCHAR"/>
+            <result property="vegetationAge" column="vegetation_age" jdbcType="INTEGER"/>
+            <result property="vegetationNumber" column="vegetation_number" jdbcType="INTEGER"/>
+            <result property="vegetationUnit" column="vegetation_unit" jdbcType="VARCHAR"/>
+            <result property="vegetationHabit" column="vegetation_habit" jdbcType="VARCHAR"/>
+            <result property="vegetationFeature" column="vegetation_feature" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="company" column="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        vegetation_id,vegetation_name,vegetation_type,
+        vegetation_age,vegetation_number,vegetation_unit,
+        vegetation_habit,vegetation_feature,remark,
+        company
+    </sql>
+</mapper>

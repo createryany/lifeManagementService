@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.creater.manageserver.mapper.ZhRentContractReturnMapper">
+
+    <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.ZhRentContractReturn">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="contractId" column="contract_id" jdbcType="INTEGER"/>
+            <result property="rentId" column="rent_id" jdbcType="INTEGER"/>
+            <result property="rentName" column="rent_name" jdbcType="VARCHAR"/>
+            <result property="returnMoneyStart" column="return_money_start" jdbcType="TIMESTAMP"/>
+            <result property="returnMoneyStop" column="return_money_stop" jdbcType="TIMESTAMP"/>
+            <result property="returnCardinalMoney" column="return_cardinal_money" jdbcType="DOUBLE"/>
+            <result property="returnRate" column="return_rate" jdbcType="DOUBLE"/>
+            <result property="currentReturnMoney" column="current_return_money" jdbcType="DOUBLE"/>
+            <result property="returnMoneyStatus" column="return_money_status" jdbcType="CHAR"/>
+            <result property="returnMoneyDesc" column="return_money_desc" jdbcType="VARCHAR"/>
+            <result property="operateId" column="operate_id" jdbcType="VARCHAR"/>
+            <result property="operateName" column="operate_name" jdbcType="VARCHAR"/>
+            <result property="operateDate" column="operate_date" jdbcType="TIMESTAMP"/>
+            <result property="invalidId" column="invalid_id" jdbcType="VARCHAR"/>
+            <result property="invalidPerson" column="invalid_person" jdbcType="VARCHAR"/>
+            <result property="invalidDate" column="invalid_date" jdbcType="TIMESTAMP"/>
+            <result property="invalidReason" column="invalid_reason" jdbcType="VARCHAR"/>
+            <result property="updatePersonId" column="update_person_id" jdbcType="VARCHAR"/>
+            <result property="updatePersonName" column="update_person_name" jdbcType="VARCHAR"/>
+            <result property="updateDate" column="update_date" jdbcType="TIMESTAMP"/>
+            <result property="updateReason" column="update_reason" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,contract_id,rent_id,
+        rent_name,return_money_start,return_money_stop,
+        return_cardinal_money,return_rate,current_return_money,
+        return_money_status,return_money_desc,operate_id,
+        operate_name,operate_date,invalid_id,
+        invalid_person,invalid_date,invalid_reason,
+        update_person_id,update_person_name,update_date,
+        update_reason
+    </sql>
+</mapper>
