@@ -1,7 +1,8 @@
 package com.creater.manageserver.mapper;
 
 import com.creater.manageserver.model.domain.TblDept;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.github.yulichang.base.MPJBaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
 * @author creater
@@ -9,7 +10,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2022-08-11 03:36:40
 * @Entity generator.domain.TblDept
 */
-public interface TblDeptMapper extends BaseMapper<TblDept> {
+@Mapper
+public interface TblDeptMapper extends MPJBaseMapper<TblDept> {
 
 }
 

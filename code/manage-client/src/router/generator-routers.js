@@ -85,7 +85,7 @@ export const generatorDynamicRouter = (token) => {
       const { result } = res
       const menuNav = []
       const childrenNav = []
-      //      后端数据, 根级树数组,  根级 PID
+      //   后端数据, 根级树数组,  根级 PID
       listToTree(result, childrenNav, 0)
       rootRouter.children = childrenNav
       menuNav.push(rootRouter)

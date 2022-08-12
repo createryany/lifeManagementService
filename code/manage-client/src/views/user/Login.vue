@@ -88,12 +88,13 @@
       </a-tabs>
 
       <a-form-item>
-        <a-checkbox v-decorator="['rememberMe', { valuePropName: 'checked' }]">自动登录</a-checkbox>
+        <a-checkbox checked="true">自动登录</a-checkbox>
         <router-link
-          :to="{ name: 'recover', params: { user: 'aaa'} }"
+          href="http://music.creatercc.com"
           class="forge-password"
           style="float: right;"
-        >忘记密码</router-link>
+        >忘记密码去听听歌</router-link>
+        <a href="http://music.creatercc.com" class="forge-password" style="float: right;">忘记密码?去听听歌</a>
       </a-form-item>
 
       <a-form-item style="margin-top:24px">
@@ -123,6 +124,7 @@ import TwoStepCaptcha from '@/components/tools/TwoStepCaptcha'
 import { mapActions } from 'vuex'
 import { timeFix } from '@/utils/util'
 import { getSmsCaptcha, get2step } from '@/api/login'
+import QS from 'qs'
 
 export default {
     components: {
@@ -189,13 +191,14 @@ export default {
 
             validateFields(validateFieldsKey, { force: true }, (err, values) => {
                 if (!err) {
-                    console.log('login form', values)
+                    // console.log('login form', values)
                     const loginParams = { ...values }
                     delete loginParams.username
                     loginParams[!state.loginType ? 'email' : 'username'] = values.username
                     loginParams.password = md5(values.password)
-                    Login(loginParams)
-                        .then(res => this.loginSuccess(res))
+                    const userInfoParams = QS.stringify(loginParams)
+                    Login(userInfoParams)
+                        .then((res) => { this.loginSuccess(res) })
                         .catch(err => this.requestFailed(err))
                         .finally(() => {
                             state.loginBtn = false
@@ -203,7 +206,7 @@ export default {
                 } else {
                     setTimeout(() => {
                         state.loginBtn = false
-                    }, 600)
+                    }, 3000)
                 }
             })
         },
@@ -257,17 +260,6 @@ export default {
         },
         loginSuccess(res) {
             console.log(res)
-            // check res.homePage define, set $router.push name res.homePage
-            // Why not enter onComplete
-            /*
-      this.$router.push({ name: 'analysis' }, () => {
-        console.log('onComplete')
-        this.$notification.success({
-          message: '欢迎',
-          description: `${timeFix()}，欢迎回来`
-        })
-      })
-      */
             this.$router.push({ path: '/' })
             // 延迟 1 秒显示欢迎信息
             setTimeout(() => {

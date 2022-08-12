@@ -10,10 +10,11 @@
             :wrapperCol="wrapperCol"
           >
             <a-select v-model="form.affiliates">
-              <a-select-option value="1">海淀子公司</a-select-option>
-              <a-select-option value="2">朝阳子公司</a-select-option>
-              <a-select-option value="3">宣武子公司</a-select-option>
-              <a-select-option value="4">大兴子公司</a-select-option>
+              <a-select-option
+                :value="index"
+                v-for="(item, index) in selectCompany"
+                :key="index"
+              >{{ item }}</a-select-option>
             </a-select>
           </a-form-model-item>
         </a-col>
@@ -128,8 +129,12 @@
 </template>
 
 <script>
+import TagSelectOption from '@/components/TagSelect/TagSelectOption'
+import { selectCompanys } from '@/api/estate'
+
 export default {
     name: 'Step1',
+    components: { TagSelectOption },
     data() {
         return {
             labelCol: { lg: { span: 6 }, sm: { span: 4 } },
@@ -175,6 +180,14 @@ export default {
             this.$refs.ruleForm.resetFields()
             console.log(this.$refs.ruleForm.resetFields)
         }
+    },
+    created() {
+        this.selectCompany = ['海淀子公司', '朝阳子公司', '天安门子公司']
+        selectCompanys().then(res => {
+            
+        }).catch(err => {
+
+        })
     }
 }
 </script>

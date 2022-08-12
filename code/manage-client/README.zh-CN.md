@@ -1,6 +1,6 @@
 简体中文
 
-<h1 align="center">物业管理系统</h1>
+<h1 align="center">易家云物业管理系统</h1>
 <div align="center">
 适用于企业应用程序的即用型UI解决方案，作为Vue样板。<a href="https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/" target="_blank">Ant Design of Vue</a>
 </div>
