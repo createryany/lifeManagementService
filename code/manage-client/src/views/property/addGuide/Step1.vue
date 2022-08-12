@@ -6,15 +6,16 @@
           <a-form-model-item
             label="所属公司"
             :labelCol="labelCol"
-            prop="affiliates"
+            prop="company"
             :wrapperCol="wrapperCol"
           >
-            <a-select v-model="form.affiliates">
+            <a-select v-model="form.company">
               <a-select-option
                 :value="index"
                 v-for="(item, index) in selectCompany"
-                :key="index"
-              >{{ item }}</a-select-option>
+                :key="item"
+              >{{ item }}
+              </a-select-option>
             </a-select>
           </a-form-model-item>
         </a-col>
@@ -25,44 +26,44 @@
             label="住宅编码"
             :labelCol="labelCol"
             :wrapperCol="wrapperCol"
-            prop="code"
-            ref="code"
+            prop="estateCode"
+            ref="estateCode"
           >
-            <a-input v-model="form.code" @blur="() => {$refs.code.onFieldBlur()}" />
+            <a-input v-model="form.estateCode" @blur="() => {$refs.estateCode.onFieldBlur()}" />
           </a-form-model-item>
         </a-col>
         <a-col :span="12">
           <a-form-model-item
             label="住宅名称"
-            prop="housename"
+            prop="estateName"
             :labelCol="labelCol"
             :wrapperCol="wrapperCol"
           >
-            <a-input v-model="form.housename" />
+            <a-input v-model="form.estateName" />
           </a-form-model-item>
         </a-col>
       </a-row>
       <a-row>
         <a-col :span="12">
           <a-form-model-item label="占地面积(平房米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
-            <a-input />
+            <a-input v-model="form.coverArea" />
           </a-form-model-item>
         </a-col>
         <a-col :span="12">
           <a-form-model-item label="建筑面积(平房米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
-            <a-input />
+            <a-input v-model="form.buildArea" />
           </a-form-model-item>
         </a-col>
       </a-row>
       <a-row>
         <a-col :span="12">
           <a-form-model-item label="绿地面积(平房米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
-            <a-input />
+            <a-input v-model="form.greenArea" />
           </a-form-model-item>
         </a-col>
         <a-col :span="12">
           <a-form-model-item label="道路面积(平房米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
-            <a-input />
+            <a-input v-model="form.roadArea" />
           </a-form-model-item>
         </a-col>
       </a-row>
@@ -71,58 +72,63 @@
           <a-form-model-item
             label="楼宇数量"
             :labelCol="labelCol"
-            prop="housecount"
+            prop="buildingNumber"
             :wrapperCol="wrapperCol"
           >
-            <a-input v-model.number="form.housecount" />
+            <a-input v-model.number="form.buildingNumber" />
           </a-form-model-item>
         </a-col>
         <a-col :span="12">
           <a-form-model-item label="负责人" :labelCol="labelCol" :wrapperCol="wrapperCol">
-            <a-input />
+            <a-input v-model="form.buildingLeader" />
           </a-form-model-item>
         </a-col>
       </a-row>
       <a-row>
         <a-form-model-item label="住宅地址" :labelCol="{span: 3}" :wrapperCol="{span: 20}">
-          <a-input />
+          <a-input v-model="form.estateAddr" />
         </a-form-model-item>
       </a-row>
       <a-row>
-        <div style="text-align:center;">----开发商信息----</div>
+        <div style="text-align:center;">------开发商信息------</div>
       </a-row>
       <a-row>
         <a-col :span="12">
           <a-form-model-item label="公司名称" :labelCol="labelCol" :wrapperCol="wrapperCol">
-            <a-input />
+            <a-input v-model="form.companyName" />
           </a-form-model-item>
         </a-col>
         <a-col :span="12">
           <a-form-model-item label="法人代表" :labelCol="labelCol" :wrapperCol="wrapperCol">
-            <a-input />
+            <a-input v-model="form.companyBehalf" />
           </a-form-model-item>
         </a-col>
       </a-row>
       <a-row>
         <a-col :span="12">
           <a-form-model-item label="联系人" :labelCol="labelCol" :wrapperCol="wrapperCol">
-            <a-input />
+            <a-input v-model="form.contact" />
           </a-form-model-item>
         </a-col>
         <a-col :span="12">
           <a-form-model-item label="联系电话" :labelCol="labelCol" :wrapperCol="wrapperCol">
-            <a-input />
+            <a-input v-model="form.contactPhone" />
           </a-form-model-item>
         </a-col>
       </a-row>
       <a-row>
+        <a-form-model-item label="联系地址" :labelCol="{span: 3}" :wrapperCol="{span: 20}">
+          <a-input v-model="form.contactAddr" />
+        </a-form-model-item>
+      </a-row>
+      <a-row>
         <a-form-model-item label="备注" :labelCol="{span: 3}" :wrapperCol="{span: 20}">
-          <a-input />
+          <a-input v-model="form.remark" />
         </a-form-model-item>
       </a-row>
       <a-form-model-item :wrapperCol="{span: 19, offset: 5}">
-        <a-button type="primary" @click="nextStep(123)">下一步</a-button>
-        <a-button style="margin-left: 10px;" @click="resetForm">Reset</a-button>
+        <a-button type="primary" @click="nextStep()">提 交</a-button>
+        <a-button style="margin-left: 10px;" @click="resetForm">重 置</a-button>
       </a-form-model-item>
     </a-form-model>
   </div>
@@ -130,94 +136,157 @@
 
 <script>
 import TagSelectOption from '@/components/TagSelect/TagSelectOption'
-import { selectCompanys } from '@/api/estate'
+import { selectCompanys, addEstate } from '@/api/estate'
+import QS from 'qs'
 
 export default {
-    name: 'Step1',
-    components: { TagSelectOption },
-    data() {
-        return {
-            labelCol: { lg: { span: 6 }, sm: { span: 4 } },
-            wrapperCol: { lg: { span: 16 }, sm: { span: 20 } },
-            form: {
-                code: '',
-                affiliates: [],
-                housename: '',
-                housecount: ''
-            },
-            rules: {
-                code: [
-                    { required: true, message: '住宅编码必须填写', trigger: 'blur' }
-                    // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' }
-                ],
-                affiliates: [{ required: true, message: '所属公司必须填写', trigger: 'change' }],
-                housename: [{ required: true, message: '楼宇名称必须填写', trigger: 'blur' }],
-                housecount: [
-                    {
-                        required: true,
-                        message: '楼宇数量必须填写',
-                        trigger: 'change'
-                    },
-                    { min: 1, max: 20, type: 'number', message: 'Length should be 3 to 5', trigger: 'change' }
-                ]
-            }
-        }
-    },
-    methods: {
-        nextStep() {
-            this.$refs.ruleForm.validate(valid => {
-                if (valid) {
-                    // alert('submit!')
-                    this.$emit('nextStep')
-                    // console.log(this.form)
-                } else {
-                    console.log('error submit!!')
-                    return false
-                }
-            })
-        },
-        resetForm() {
-            this.$refs.ruleForm.resetFields()
-            console.log(this.$refs.ruleForm.resetFields)
-        }
-    },
-    created() {
-        this.selectCompany = ['海淀子公司', '朝阳子公司', '天安门子公司']
-        selectCompanys().then(res => {
-            
-        }).catch(err => {
-
-        })
+  name: 'Step1',
+  components: { TagSelectOption },
+  data() {
+    return {
+      selectCompany: [],
+      labelCol: { lg: { span: 6 }, sm: { span: 4 } },
+      wrapperCol: { lg: { span: 16 }, sm: { span: 20 } },
+      form: {
+        estateCode: '',
+        estateName: '',
+        estateAddr: '',
+        coverArea: '',
+        buildArea: '',
+        greenArea: '',
+        roadArea: '',
+        buildingNumber: '',
+        buildingLeader: '',
+        companyName: '',
+        companyBehalf: '',
+        contact: '',
+        contactPhone: '',
+        contactAddr: '',
+        remark: '',
+        company: ''
+      },
+      rules: {
+        estateCode: [
+          { required: true, message: '住宅编码必须填写', trigger: 'blur' }
+          // { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' }
+        ],
+        company: [{ required: true, message: '所属公司必须填写', trigger: 'change' }],
+        estateName: [{ required: true, message: '楼宇名称必须填写', trigger: 'blur' }],
+        buildingNumber: [
+          {
+            required: true,
+            message: '楼宇数量必须填写',
+            trigger: 'change'
+          },
+          { min: 1, max: 20, type: 'number', message: '长度要求 1 ~ 20', trigger: 'change' }
+        ]
+      }
     }
+  },
+  methods: {
+    nextStep() {
+      this.$refs.ruleForm.validate(valid => {
+        if (valid) {
+          const data = QS.stringify(this.form)
+          addEstate(data).then(res => {
+            const result = res.result
+            if (result === 1) {
+              this.$notification.success({
+                message: '您好',
+                description: res.message
+              })
+              this.$store.commit('SET_BUILDINGNUMBER', {
+                buildingNumber: this.form.buildingNumber,
+                estateCode: this.form.estateCode
+              })
+              this.$emit('nextStep')
+            } else {
+              this.$notification.warning({
+                message: '您好',
+                description: res.message
+              })
+            }
+          }).catch(err => {
+            this.$notification['error']({
+              message: '错误',
+              description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
+              duration: 4
+            })
+          })
+        } else {
+
+        }
+      })
+    },
+    resetForm() {
+      this.$confirm({
+        title: '提示',
+        content: '您确定要重置吗 ?',
+        onOk: () => {
+          this.$refs.ruleForm.resetFields()
+          this.form.estateName = ''
+          this.form.estateAddr = ''
+          this.form.coverArea = ''
+          this.form.estateCode = ''
+          this.form.buildArea = ''
+          this.form.greenArea = ''
+          this.form.roadArea = ''
+          this.form.buildingNumber = ''
+          this.form.buildingLeader = ''
+          this.form.companyName = ''
+          this.form.companyBehalf = ''
+          this.form.contact = ''
+          this.form.contactPhone = ''
+          this.form.contactAddr = ''
+          this.form.remark = ''
+          this.form.company = ''
+        },
+        onCancel() {
+        }
+      })
+    }
+  },
+  created() {
+    selectCompanys().then(res => {
+      this.selectCompany = res.result
+    }).catch(err => {
+      this.$notification['error']({
+        message: '错误',
+        description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
+        duration: 4
+      })
+    })
+  }
 }
 </script>
 
 <style lang="less" scoped>
 .step-form-style-desc {
-    padding: 0 56px;
+  padding: 0 56px;
+  color: rgba(0, 0, 0, 0.45);
+
+  h3 {
+    margin: 0 0 12px;
     color: rgba(0, 0, 0, 0.45);
+    font-size: 16px;
+    line-height: 32px;
+  }
 
-    h3 {
-        margin: 0 0 12px;
-        color: rgba(0, 0, 0, 0.45);
-        font-size: 16px;
-        line-height: 32px;
-    }
+  h4 {
+    margin: 0 0 4px;
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 14px;
+    line-height: 22px;
+  }
 
-    h4 {
-        margin: 0 0 4px;
-        color: rgba(0, 0, 0, 0.45);
-        font-size: 14px;
-        line-height: 22px;
-    }
-
-    p {
-        margin-top: 0;
-        margin-bottom: 12px;
-        line-height: 22px;
-    }
+  p {
+    margin-top: 0;
+    margin-bottom: 12px;
+    line-height: 22px;
+  }
 }
+
 .ant-form-item {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 </style>

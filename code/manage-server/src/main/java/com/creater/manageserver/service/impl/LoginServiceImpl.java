@@ -10,6 +10,7 @@ import com.creater.manageserver.model.dto.TblUserRecordDTO;
 import com.creater.manageserver.service.LoginService;
 import com.github.yulichang.base.MPJBaseServiceImpl;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
+import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2022/8/11 5:09
  */
 @Service
+@Log4j
 public class LoginServiceImpl extends MPJBaseServiceImpl<TblUserRecordMapper, TblUserRecord> implements LoginService {
 
     @Resource
@@ -40,6 +42,7 @@ public class LoginServiceImpl extends MPJBaseServiceImpl<TblUserRecordMapper, Tb
                         .eq(TblUserRecord::getUserPassword, password));
         tblUserRecordDTO.setToken(tblUserRecordDTO.getUserName());
         request.getSession().setAttribute("userInfo", tblUserRecordDTO);
+        log.info(tblUserRecordDTO.getUserName() + "登录了系统");
         return Result.ok(tblUserRecordDTO);
     }
 }

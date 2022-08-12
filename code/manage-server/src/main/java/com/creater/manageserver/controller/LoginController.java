@@ -6,6 +6,7 @@ import com.creater.manageserver.common.PermissionManagement.UserInfo;
 import com.creater.manageserver.common.Result;
 import com.creater.manageserver.model.dto.TblUserRecordDTO;
 import com.creater.manageserver.service.LoginService;
+import lombok.extern.log4j.Log4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
  * @date 2022/8/11 4:43
  */
 @RestController
+@Log4j
 public class LoginController {
 
     @Resource
@@ -32,11 +34,13 @@ public class LoginController {
     public Result login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
                         HttpServletRequest request) {
+        log.info("===调用了login()方法");
         return loginService.login(request, username, password);
     }
 
     @GetMapping("/user/info")
     public Result getUserInfo(HttpServletRequest request) {
+        log.info("===调用了getUserInfo()方法");
         TblUserRecordDTO tblUserRecordDTO = (TblUserRecordDTO) request.getSession().getAttribute("userInfo");
         // 获取权限模块
         String[] permissionArray = tblUserRecordDTO.getRolePrivileges().split("-");
@@ -57,6 +61,9 @@ public class LoginController {
 
     @RequestMapping("/auth/logout")
     public Result logout(HttpSession session) {
+        log.info("===调用了logout()方法");
+        TblUserRecordDTO tblUserRecordDTO = (TblUserRecordDTO) session.getAttribute("userInfo");
+        log.info(tblUserRecordDTO.getUserName() + "--退出登录");
         session.invalidate();
         return Result.ok();
     }
