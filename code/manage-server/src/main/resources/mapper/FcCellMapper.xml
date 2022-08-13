@@ -6,7 +6,7 @@
 
     <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FcCell">
             <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="unitCode" column="unit_code" jdbcType="INTEGER"/>
+            <result property="unitCode" column="unit_code" jdbcType="VARCHAR"/>
             <result property="cellCode" column="cell_code" jdbcType="VARCHAR"/>
             <result property="cellName" column="cell_name" jdbcType="VARCHAR"/>
             <result property="cellHouseCode" column="cell_house_code" jdbcType="VARCHAR"/>

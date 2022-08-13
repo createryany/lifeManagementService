@@ -127,7 +127,7 @@
         </a-form-model-item>
       </a-row>
       <a-form-model-item :wrapperCol="{span: 19, offset: 5}">
-        <a-button type="primary" @click="nextStep()">提 交</a-button>
+        <a-button type="primary" @click="nextStep()">下一步</a-button>
         <a-button style="margin-left: 10px;" @click="resetForm">重 置</a-button>
       </a-form-model-item>
     </a-form-model>
@@ -195,9 +195,10 @@ export default {
                 message: '您好',
                 description: res.message
               })
-              this.$store.commit('SET_BUILDINGNUMBER', {
+              this.$store.commit('SET_STEP1', {
                 buildingNumber: this.form.buildingNumber,
-                estateCode: this.form.estateCode
+                estateCode: this.form.estateCode,
+                isCreated: true
               })
               this.$emit('nextStep')
             } else {

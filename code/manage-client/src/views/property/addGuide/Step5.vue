@@ -2,10 +2,10 @@
   <div>
     <a-form style="margin: 40px auto 0;">
       <result title="操作成功" :is-success="true" description="请到查看中查询" style="max-width: 560px;">
-        <!-- <div slot="action">
-          <a-button type="primary" @click="finish">再转一笔</a-button>
-          <a-button style="margin-left: 8px" @click="toOrderList">查看账单</a-button>
-        </div>-->
+        <div slot="action">
+          <a-button type="primary" @click="finish">继续添加</a-button>
+          <a-button style="margin-left: 8px" @click="toOrderList">查看住宅信息</a-button>
+        </div>
       </result>
     </a-form>
   </div>

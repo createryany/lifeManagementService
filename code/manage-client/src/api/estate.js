@@ -30,3 +30,65 @@ export function updateBuildingMsg(parameterData) {
     data: parameterData
   })
 }
+
+export function searchUnitMsg(parameterData) {
+  return axios({
+    url: '/estate/searchUnitMsg',
+    method: 'post',
+    data: parameterData,
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  })
+}
+
+export function updateUnitMsg(parameterData) {
+  return axios({
+    url: '/estate/updateUnitMsg',
+    method: 'post',
+    data: parameterData
+  })
+}
+
+export function addCell(parameterData) {
+  return axios({
+    url: '/estate/addCell',
+    method: 'post',
+    data: parameterData,
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  })
+}
+
+export function searchBaseBuildMsg(parameterData) {
+  return axios({
+    url: '/estate/searchBaseBuildMsg',
+    method: 'post',
+    data: parameterData
+  })
+}
+
+export function searchBaseUnitMsg(parameterData) {
+  return axios({
+    url: '/estate/searchBaseUnitMsg',
+    method: 'post',
+    data: parameterData
+  })
+}
+
+export function searchCellMsg(parameterData) {
+  return axios({
+    url: '/estate/searchCellMsg',
+    method: 'post',
+    data: parameterData
+  })
+}
+
+export function updateCellMsg(parameterData) {
+  return axios({
+    url: '/estate/updateCellMsg',
+    method: 'post',
+    data: parameterData
+  })
+}

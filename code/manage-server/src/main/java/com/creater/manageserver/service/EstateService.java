@@ -1,10 +1,12 @@
 package com.creater.manageserver.service;
 
 import com.creater.manageserver.common.Result;
-import com.creater.manageserver.model.domain.FcBuilding;
-import com.creater.manageserver.model.domain.FcEstate;
-import com.creater.manageserver.model.domain.TblCompany;
+import com.creater.manageserver.model.domain.*;
+import com.creater.manageserver.model.vo.CellMessageVO;
+import com.creater.manageserver.model.vo.UnitMessageVO;
 import com.github.yulichang.base.MPJBaseService;
+
+import java.util.List;
 
 /**
  * @author: createryan
@@ -20,4 +22,18 @@ public interface EstateService extends MPJBaseService<TblCompany> {
     Result searchBuild(String estateCode, Integer buildingNumber);
 
     Result updateBuildingMsg(FcBuilding fcBuilding);
+
+    List<FcUnit> searchUnitMsg(UnitMessageVO unitMessage);
+
+    Result updateUnitMsg(FcUnit fcUnit);
+
+    List<FcCell> addCell(CellMessageVO cellMessageVO);
+
+    Result searchBaseBuildMsg(String estateCode);
+
+    Result searchBaseUnitMsg(String buildingCode);
+
+    Result searchCellMsg(String unitCode);
+
+    Result updateCellMsg(FcCell fcCell);
 }

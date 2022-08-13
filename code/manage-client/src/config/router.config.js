@@ -47,30 +47,30 @@ export const asyncRouterMap = [
                         children: [
                             {
                                 path: '/property/add',
-                                name: '新增住宅向导',
+                                name: '添加住宅',
                                 component: () => import('@/views/property/add'),
                                 meta: {
-                                    title: '新增住宅向导',
+                                    title: '添加住宅',
                                     keepAlive: true,
                                     permission: ['221', '22101', '2210101']
                                 }
                             },
                             {
                                 path: '/property/building',
-                                name: '批量增加住宅',
+                                name: '添加楼宇',
                                 component: () => import('@/views/property/building'),
                                 meta: {
-                                    title: '批量增加楼宇',
+                                    title: '添加楼宇',
                                     keepAlive: true,
                                     permission: ['221', '22101', '2210102']
                                 }
                             },
                             {
                                 path: '/property/maintain',
-                                name: '住宅维护',
+                                name: '住宅信息',
                                 component: () => import('@/views/property/maintain'),
                                 meta: {
-                                    title: '住宅维护',
+                                    title: '住宅信息',
                                     keepAlive: true,
                                     permission: ['221', '22101', '2210103']
                                 }
@@ -91,35 +91,35 @@ export const asyncRouterMap = [
                         children: [
                             {
                                 path: '/business/add',
-                                name: '新增房产向导',
+                                name: '添加房产',
                                 component: () => import('@/views/business/add'),
                                 meta: {
-                                    title: '新增房产向导',
+                                    title: '添加房产',
                                     keepAlive: true,
                                     permission: ['221', '22102', '2210201']
                                 }
                             },
                             {
                                 path: '/business/building',
-                                name: '批量增加商业房产',
+                                name: '批量添加商业房产',
                                 component: () => import('@/views/business/building'),
                                 meta: {
-                                    title: '批量增加楼宇',
+                                    title: '批量添加商业房产',
                                     keepAlive: true,
                                     permission: ['221', '22102', '2210202']
                                 }
                             },
                             {
                                 path: '/business/maintain',
-                                name: '房产维护',
+                                name: '房产信息',
                                 component: () => import('@/views/business/maintain'),
-                                meta: { title: '住宅维护', keepAlive: true, permission: ['221', '22102', '2210203'] }
+                                meta: { title: '房产信息', keepAlive: true, permission: ['221', '22102', '2210203'] }
                             },
                             {
                                 path: '/business/search',
                                 name: '房产查询',
                                 component: () => import('@/views/business/search'),
-                                meta: { title: '住宅查询', keepAlive: true, permission: ['221', '22102', '2210204'] }
+                                meta: { title: '房产查询', keepAlive: true, permission: ['221', '22102', '2210204'] }
                             }
                         ]
                     }

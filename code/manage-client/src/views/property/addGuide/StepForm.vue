@@ -1,10 +1,10 @@
 <template>
   <a-card :bordered="false">
     <a-steps class="steps" :current="currentTab">
-      <a-step title="输入住宅的基本信息" />
-      <a-step title="维护楼宇信息" />
-      <a-step title="维护单元信息" />
-      <a-step title="维护房间信息" />
+      <a-step title="住宅基本信息" />
+      <a-step title="楼宇信息" />
+      <a-step title="单元信息" />
+      <a-step title="房间信息" />
       <a-step title="完成" />
     </a-steps>
     <div class="content">

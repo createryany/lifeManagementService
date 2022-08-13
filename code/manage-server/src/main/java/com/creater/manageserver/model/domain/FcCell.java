@@ -4,8 +4,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 房间信息表
@@ -23,7 +24,7 @@ public class FcCell implements Serializable {
     /**
      * 单元编码
      */
-    private Integer unitCode;
+    private String unitCode;
 
     /**
      * 房间编码

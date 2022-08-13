@@ -3,7 +3,7 @@
     <!-- <a-form-model ref="ruleForm" :model="form2" :label-col="labelCol" :wrapper-col="wrapperCol"> -->
     <a-row class="header">
       楼宇数量:
-      <span style="color: #001529;font-weight: 700;">{{ this.$store.state.oneStepState.buildingNumber }}</span>
+      <span style="color: #001529;font-weight: 700;">{{ this.$store.state.stepState.buildingNumber }}</span>
       单元数量:
       <!-- <a-form-model-item label="单元数量：" prop="region" class="units" :labelCol="labelCol" :wrapperCol="wrapperCol"> -->
       <a-select v-model="form2.region" @change="change()">
@@ -184,6 +184,19 @@ export default {
       }
     },
     nextStep() {
+      const dataArray = this.data
+      let unitMessage = '['
+      for (let i = 0; i < dataArray.length; i++) {
+        if (i !== dataArray.length - 1) {
+          unitMessage += '{ "buildingCode": "' + dataArray[i].buildingCode + '", "unitCount": ' + dataArray[i].unitCount + '},'
+        } else {
+          unitMessage += '{ "buildingCode": "' + dataArray[i].buildingCode + '", "unitCount": ' + dataArray[i].unitCount + '}]'
+        }
+      }
+      this.$store.commit('SET_STEP2', {
+        unitMessage: unitMessage,
+        isCreated: true
+      })
       this.$emit('nextStep')
     },
     prevStep() {
@@ -208,7 +221,6 @@ export default {
       }
     },
     save(key) {
-      console.log(key)
       const newData = [...this.data]
       const newCacheData = [...this.cacheData]
       const target = newData.filter(item => key === item.key)[0]
@@ -220,7 +232,7 @@ export default {
         this.cacheData = newCacheData
       }
       target.id = key
-      target.estateCode = this.$store.state.oneStepState.estateCode
+      target.estateCode = this.$store.state.stepState.estateCode
       if (target.remark == null) target.remark = '无'
       const parameterData = QS.stringify(target)
       updateBuildingMsg(parameterData).then(res => {
@@ -256,44 +268,48 @@ export default {
     }
   },
   created() {
-    const buildData = {
-      estateCode: this.$store.state.oneStepState.estateCode,
-      buildingNumber: this.$store.state.oneStepState.buildingNumber
-    }
-    const parameterData = QS.stringify(buildData)
-    searchBuild(parameterData).then(res => {
-      const result = res.result
-      if (result.length) {
-        for (let i = 0; i < result.length; i++) {
-          const building = result[i]
-          data.push({
-            key: building.id,
-            buildingCode: building.buildingCode,
-            buildingName: building.buildingName,
-            unitCount: building.unitCount,
-            overRoofDate: building.overRoofDate,
-            finishdDate: building.finishdDate,
-            salePermissionId: building.salePermissionId,
-            buildPermissionId: building.buildPermissionId,
-            buildArea: building.buildArea,
-            usedArea: building.usedArea,
-            remark: building.remark
+    if (this.$store.state.stepState.isCreated) {
+      const buildData = {
+        estateCode: this.$store.state.stepState.estateCode,
+        buildingNumber: this.$store.state.stepState.buildingNumber
+      }
+      const parameterData = QS.stringify(buildData)
+      searchBuild(parameterData).then(res => {
+        const result = res.result
+        const myData = []
+        if (result.length) {
+          for (let i = 0; i < result.length; i++) {
+            const building = result[i]
+            myData.push({
+              key: building.id,
+              buildingCode: building.buildingCode,
+              buildingName: building.buildingName,
+              unitCount: building.unitCount,
+              overRoofDate: building.overRoofDate,
+              finishdDate: building.finishdDate,
+              salePermissionId: building.salePermissionId,
+              buildPermissionId: building.buildPermissionId,
+              buildArea: building.buildArea,
+              usedArea: building.usedArea,
+              remark: building.remark
+            })
+          }
+          this.data = myData
+          this.cacheData = this.data.map(item => ({ ...item }))
+        } else {
+          this.$notification.warning({
+            message: '您好',
+            description: res.message
           })
         }
-        this.cacheData = data.map(item => ({ ...item }))
-      } else {
-        this.$notification.warning({
-          message: '您好',
-          description: res.message
+      }).catch(err => {
+        this.$notification['error']({
+          message: '错误',
+          description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
+          duration: 4
         })
-      }
-    }).catch(err => {
-      this.$notification['error']({
-        message: '错误',
-        description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
-        duration: 4
       })
-    })
+    }
   },
   beforeDestroy() {
     //  clearTimeout(this.timer)
