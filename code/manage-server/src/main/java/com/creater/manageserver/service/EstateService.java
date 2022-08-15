@@ -46,4 +46,6 @@ public interface EstateService extends MPJBaseService<TblCompany> {
     int updateCacheUnitMsg(FcUnit fcUnit);
 
     int updateCacheCellMsg(FcCell fcCell);
+
+    Result searchEstate(String company);
 }

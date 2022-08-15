@@ -233,7 +233,6 @@ export default {
         }
       }
       if (unitCountMsg !== dataArray.length) {
-        console.log('欸欸欸欸欸欸额', unitCountMsg, dataArray.length)
         this.$notification.warn({
           message: '您好',
           description: '每个单元数量不能小于 1'

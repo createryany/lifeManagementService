@@ -130,3 +130,11 @@ export function updateCacheCellMsg(parameterData) {
     data: parameterData
   })
 }
+
+export function searchEstate(parameterData) {
+  return axios({
+    url: '/estate/searchEstate',
+    method: 'post',
+    data: parameterData
+  })
+}

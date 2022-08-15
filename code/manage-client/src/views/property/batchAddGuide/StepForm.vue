@@ -2,9 +2,9 @@
   <a-card :bordered="false">
     <a-steps class="steps" :current="currentTab">
       <a-step title="选择住宅" />
-      <a-step title="维护楼宇信息" />
-      <a-step title="维护单元信息" />
-      <a-step title="维护房间信息" />
+      <a-step title="楼宇信息" />
+      <a-step title="单元信息" />
+      <a-step title="房间信息" />
       <a-step title="完成" />
     </a-steps>
     <div class="content">
@@ -23,42 +23,43 @@ import Step2 from './Step2'
 import Step3 from './Step3'
 import Step4 from './Step4'
 import Step5 from './Step5'
+
 export default {
-    name: 'StepForm',
-    components: {
-        Step1,
-        Step2,
-        Step3,
-        Step4,
-        Step5
-    },
-    data() {
-        return {
-            currentTab: 0
-        }
-    },
-    methods: {
-        // handler
-        nextStep() {
-            if (this.currentTab < 4) {
-                this.currentTab += 1
-            }
-        },
-        prevStep() {
-            if (this.currentTab > 0) {
-                this.currentTab -= 1
-            }
-        },
-        finish() {
-            this.currentTab = 0
-        }
+  name: 'StepForm',
+  components: {
+    Step1,
+    Step2,
+    Step3,
+    Step4,
+    Step5
+  },
+  data() {
+    return {
+      currentTab: 0
     }
+  },
+  methods: {
+    // handler
+    nextStep() {
+      if (this.currentTab < 4) {
+        this.currentTab += 1
+      }
+    },
+    prevStep() {
+      if (this.currentTab > 0) {
+        this.currentTab -= 1
+      }
+    },
+    finish() {
+      this.currentTab = 0
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
 .steps {
-    max-width: 1100px;
-    margin: 16px auto;
+  max-width: 1100px;
+  margin: 16px auto;
 }
 </style>

@@ -6,7 +6,8 @@
       <a-select v-model="form2.region">
         <a-select-option value="1">1</a-select-option>
         <a-select-option value="2">2</a-select-option>
-      </a-select>选择单元:
+      </a-select>
+      选择单元:
       <a-select v-model="form2.region">
         <a-select-option value="1">1</a-select-option>
         <a-select-option value="2">2</a-select-option>
@@ -62,145 +63,145 @@
 
 <script>
 const columns = [
-    {
-        align: 'center',
-        title: '楼层数',
-        dataIndex: 'floornumber',
-        width: '6%',
-        scopedSlots: { customRender: 'floornumber' }
-    },
-    {
-        align: 'center',
-        title: '房间编码',
-        dataIndex: 'housecode',
-        width: '6%',
-        scopedSlots: { customRender: 'housecode' }
-    },
-    {
-        align: 'center',
-        title: '建筑面积',
-        dataIndex: 'constructionarea',
-        width: '6%',
-        scopedSlots: { customRender: 'constructionarea' }
-    },
-    {
-        align: 'center',
-        title: '使用面积',
-        dataIndex: 'usagearea',
-        width: '7%',
-        scopedSlots: { customRender: 'usagearea' }
-    },
-    {
-        align: 'center',
-        title: '备注',
-        dataIndex: 'remark',
-        width: '38%',
-        scopedSlots: { customRender: 'remark' }
-    },
-    {
-        align: 'center',
-        title: '编辑',
-        width: '7%',
-        dataIndex: 'operation',
-        scopedSlots: { customRender: 'operation' }
-    }
+  {
+    align: 'center',
+    title: '楼层数',
+    dataIndex: 'floornumber',
+    width: '6%',
+    scopedSlots: { customRender: 'floornumber' }
+  },
+  {
+    align: 'center',
+    title: '房间编码',
+    dataIndex: 'housecode',
+    width: '6%',
+    scopedSlots: { customRender: 'housecode' }
+  },
+  {
+    align: 'center',
+    title: '建筑面积',
+    dataIndex: 'constructionarea',
+    width: '6%',
+    scopedSlots: { customRender: 'constructionarea' }
+  },
+  {
+    align: 'center',
+    title: '使用面积',
+    dataIndex: 'usagearea',
+    width: '7%',
+    scopedSlots: { customRender: 'usagearea' }
+  },
+  {
+    align: 'center',
+    title: '备注',
+    dataIndex: 'remark',
+    width: '38%',
+    scopedSlots: { customRender: 'remark' }
+  },
+  {
+    align: 'center',
+    title: '编辑',
+    width: '7%',
+    dataIndex: 'operation',
+    scopedSlots: { customRender: 'operation' }
+  }
 ]
 
 const data = []
 for (let i = 0; i < 10; i++) {
-    data.push({
-        key: i.toString(),
-        floornumber: `B-${i + 1}`,
-        housecode: `U-${i + 1}`,
-        constructionarea: `${i + 1}单元`,
-        usagearea: 1,
-        remark: ''
-    })
+  data.push({
+    key: i.toString(),
+    floornumber: `B-${i + 1}`,
+    housecode: `U-${i + 1}`,
+    constructionarea: `${i + 1}单元`,
+    usagearea: 1,
+    remark: ''
+  })
 }
 export default {
-    name: 'Step4',
-    data() {
-        this.cacheData = data.map(item => ({ ...item }))
-        return {
-            labelCol: { span: 2 },
-            wrapperCol: { span: 1 },
-            form2: {
-                name: '',
-                region: undefined,
-                date1: undefined,
-                delivery: false,
-                type: [],
-                resource: '',
-                desc: ''
-            },
-            data,
-            columns,
-            editingKey: ''
-        }
-    },
-    methods: {
-        nextStep() {
-            this.$emit('nextStep')
-            console.log(33)
-        },
-        prevStep() {
-            // this.$emit('prevStep')
-        },
-        handleChange(value, key, column) {
-            const newData = [...this.data]
-            const target = newData.filter(item => key === item.key)[0]
-            if (target) {
-                target[column] = value
-                this.data = newData
-            }
-        },
-        edit(key) {
-            const newData = [...this.data]
-            const target = newData.filter(item => key === item.key)[0]
-            this.editingKey = key
-            if (target) {
-                target.editable = true
-                this.data = newData
-            }
-        },
-        save(key) {
-            console.log(key)
-            const newData = [...this.data]
-            const newCacheData = [...this.cacheData]
-            const target = newData.filter(item => key === item.key)[0]
-            const targetCache = newCacheData.filter(item => key === item.key)[0]
-            if (target && targetCache) {
-                delete target.editable
-                this.data = newData
-                Object.assign(targetCache, target)
-                this.cacheData = newCacheData
-                this.editingKey = ''
-            }
-        },
-        cancel(key) {
-            const newData = [...this.data]
-            const target = newData.filter(item => key === item.key)[0]
-            this.editingKey = ''
-            if (target) {
-                Object.assign(target, this.cacheData.filter(item => key === item.key)[0])
-                delete target.editable
-                this.data = newData
-            }
-        }
-    },
-    beforeDestroy() {
-        //  clearTimeout(this.timer)
+  name: 'Step4',
+  data() {
+    this.cacheData = data.map(item => ({ ...item }))
+    return {
+      labelCol: { span: 2 },
+      wrapperCol: { span: 1 },
+      form2: {
+        name: '',
+        region: undefined,
+        date1: undefined,
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
+      data,
+      columns,
+      editingKey: ''
     }
+  },
+  methods: {
+    nextStep() {
+      this.$emit('nextStep')
+      console.log(33)
+    },
+    prevStep() {
+      // this.$emit('prevStep')
+    },
+    handleChange(value, key, column) {
+      const newData = [...this.data]
+      const target = newData.filter(item => key === item.key)[0]
+      if (target) {
+        target[column] = value
+        this.data = newData
+      }
+    },
+    edit(key) {
+      const newData = [...this.data]
+      const target = newData.filter(item => key === item.key)[0]
+      this.editingKey = key
+      if (target) {
+        target.editable = true
+        this.data = newData
+      }
+    },
+    save(key) {
+      console.log(key)
+      const newData = [...this.data]
+      const newCacheData = [...this.cacheData]
+      const target = newData.filter(item => key === item.key)[0]
+      const targetCache = newCacheData.filter(item => key === item.key)[0]
+      if (target && targetCache) {
+        delete target.editable
+        this.data = newData
+        Object.assign(targetCache, target)
+        this.cacheData = newCacheData
+        this.editingKey = ''
+      }
+    },
+    cancel(key) {
+      const newData = [...this.data]
+      const target = newData.filter(item => key === item.key)[0]
+      this.editingKey = ''
+      if (target) {
+        Object.assign(target, this.cacheData.filter(item => key === item.key)[0])
+        delete target.editable
+        this.data = newData
+      }
+    }
+  },
+  beforeDestroy() {
+    //  clearTimeout(this.timer)
+  }
 }
 </script>
 
 <style lang="less" scoped>
 .stepFormText {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 
-    .ant-form-item-label,
-    .ant-form-item-control {
-        line-height: 22px;
-    }
+  .ant-form-item-label,
+  .ant-form-item-control {
+    line-height: 22px;
+  }
 }
 </style>

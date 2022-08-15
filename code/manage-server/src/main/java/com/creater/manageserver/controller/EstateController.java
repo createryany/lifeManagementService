@@ -192,17 +192,20 @@ public class EstateController {
         log.info("===调用了updateCacheCellMsg()方法\n");
         Integer id = fcCells[0].getId();
         if (id == null) {
-            System.out.println("id = " + id);
             return Result.fail(messageError);
         }
         int result = 0;
         for (FcCell fcCell : fcCells) {
             result += estateService.updateCacheCellMsg(fcCell);
-            System.out.println("\n\nfcCell = " + fcCell);
         }
         if (result == 0) {
             return Result.fail(systemError);
         }
         return Result.ok();
+    }
+
+    @PostMapping("/searchEstate")
+    public Result searchEstate(String company) {
+        return estateService.searchEstate(company);
     }
 }

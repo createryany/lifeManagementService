@@ -45,13 +45,11 @@ public class EstateServiceImpl extends MPJBaseServiceImpl<TblCompanyMapper, TblC
 
     @Override
     public Result selectCompanys() {
-        List<String> tblCompanyNamesList = new ArrayList<>();
-        List<TblCompany> tblCompanyNames = tblCompanyMapper.selectList(new MPJLambdaWrapper<TblCompany>()
-                .select(TblCompany::getCompanyFullName));
-        for (TblCompany tblCompanyName : tblCompanyNames) {
-            tblCompanyNamesList.add(String.valueOf(tblCompanyName.getCompanyFullName()));
-        }
-        return Result.ok(tblCompanyNamesList);
+        List<TblCompany> tblCompanies = tblCompanyMapper.selectList(new MPJLambdaWrapper<TblCompany>()
+                .select(TblCompany::getCompanyFullName)
+                .select(TblCompany::getId));
+        List<TblCompany> tblCompanyList = new ArrayList<>(tblCompanies);
+        return Result.ok(tblCompanyList);
     }
 
     @Override
@@ -274,5 +272,14 @@ public class EstateServiceImpl extends MPJBaseServiceImpl<TblCompanyMapper, TblC
             fcCell.setRemark("无");
         }
         return fcCellMapper.updateById(fcCell);
+    }
+
+    @Override
+    public Result searchEstate(String company) {
+        QueryWrapper<FcEstate> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("company", company);
+        queryWrapper.select("estate_code", "estate_name");
+        List<FcEstate> fcEstates = fcEstateMapper.selectList(queryWrapper);
+        return Result.ok(fcEstates);
     }
 }

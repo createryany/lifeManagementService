@@ -11,11 +11,10 @@
           >
             <a-select v-model="form.company">
               <a-select-option
-                :value="index"
+                :value="item.id"
                 v-for="(item, index) in selectCompany"
-                :key="item"
-              >{{ item }}
-              </a-select-option>
+                :key="index"
+              >{{ item.companyFullName }}</a-select-option>
             </a-select>
           </a-form-model-item>
         </a-col>
@@ -128,7 +127,7 @@
       </a-row>
       <a-form-model-item :wrapperCol="{span: 19, offset: 5}">
         <a-button type="primary" @click="nextStep()">下一步</a-button>
-        <a-button style="margin-left: 10px;" @click="resetForm">重 置</a-button>
+        <a-button style="margin-left: 10px;" @click="resetForm">重置</a-button>
       </a-form-model-item>
     </a-form-model>
   </div>
@@ -178,7 +177,7 @@ export default {
             message: '楼宇数量必须填写',
             trigger: 'change'
           },
-          { min: 1, max: 20, type: 'number', message: '楼宇数量必须在 1 ~ 20', trigger: 'change' }
+          { min: 1, max: 20, type: 'number', message: '楼宇数量必须在 1~20', trigger: 'change' }
         ]
       }
     }

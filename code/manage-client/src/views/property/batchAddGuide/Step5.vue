@@ -15,35 +15,36 @@
 import { Result } from '@/components'
 
 export default {
-    name: 'Step5',
-    components: {
-        Result
+  name: 'Step5',
+  components: {
+    Result
+  },
+  data() {
+    return {}
+  },
+  methods: {
+    finish() {
+      this.$emit('finish')
     },
-    data() {
-        return {}
-    },
-    methods: {
-        finish() {
-            this.$emit('finish')
-        },
-        toOrderList() {
-            // this.$router.push('/list/table-list')
-        }
+    toOrderList() {
+      // this.$router.push('/list/table-list')
     }
+  }
 }
 </script>
 <style lang="less" scoped>
 .information {
-    line-height: 22px;
+  line-height: 22px;
 
-    .ant-row:not(:last-child) {
-        margin-bottom: 24px;
-    }
+  .ant-row:not(:last-child) {
+    margin-bottom: 24px;
+  }
 }
+
 .money {
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 14px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 14px;
 }
 </style>
