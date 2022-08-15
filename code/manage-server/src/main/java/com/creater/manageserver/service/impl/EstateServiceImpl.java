@@ -57,6 +57,7 @@ public class EstateServiceImpl extends MPJBaseServiceImpl<TblCompanyMapper, TblC
     @Override
     @Transactional
     public Result addEstate(FcEstate fcEstate) {
+        if (fcEstate.getRemark() == null || "".equals(fcEstate.getRemark())) fcEstate.setRemark("无");
         // 判断该住宅是否已经添加过
         String estateCode = fcEstate.getEstateCode();
         FcEstate code = fcEstateMapper.selectOne(new QueryWrapper<FcEstate>()
@@ -119,6 +120,7 @@ public class EstateServiceImpl extends MPJBaseServiceImpl<TblCompanyMapper, TblC
         for (int i = 1; i <= unitMessage.getUnitCount(); i++) {
             FcUnit fcUnit = new FcUnit();
             String buildingCode = unitMessage.getBuildingCode();
+            fcUnit.setEstateCode(unitMessage.getEstateCode());
             fcUnit.setBuildingCode(buildingCode);
             fcUnit.setUnitCode(buildingCode + "-U" + i);
             fcUnit.setUnitName("第" + i + "单元");
@@ -163,6 +165,7 @@ public class EstateServiceImpl extends MPJBaseServiceImpl<TblCompanyMapper, TblC
                 }
                 FcCell fcCell = new FcCell();
                 String unitCode = cellMessageVO.getUnitCode();
+                fcCell.setEstateCode(cellMessageVO.getEstateCode());
                 fcCell.setUnitCode(unitCode);
                 fcCell.setCellName(cellName);
                 fcCell.setCellCode(unitCode + "-C" + cellName);
@@ -226,5 +229,50 @@ public class EstateServiceImpl extends MPJBaseServiceImpl<TblCompanyMapper, TblC
             return Result.ok("保存成功", count);
         }
         return Result.fail(systemError);
+    }
+
+    @Override
+    public Result getBuildMsg() {
+        List<FcBuilding> fcBuildings = fcBuildingMapper.selectList(null);
+        if (fcBuildings.isEmpty()) {
+            return Result.fail(systemError);
+        }
+        return Result.ok(fcBuildings);
+    }
+
+    @Override
+    public Result getUnitMsg() {
+        List<FcUnit> fcUnits = fcUnitMapper.selectList(null);
+        if (fcUnits.isEmpty()) {
+            return Result.fail(systemError);
+        }
+        return Result.ok(fcUnits);
+    }
+
+    @Override
+    @Transactional
+    public int updateCacheBuildingMsg(FcBuilding fcBuilding) {
+        if (fcBuilding.getRemark() == null || "".equals(fcBuilding.getRemark())) {
+            fcBuilding.setRemark("无");
+        }
+        return fcBuildingMapper.updateById(fcBuilding);
+    }
+
+    @Override
+    @Transactional
+    public int updateCacheUnitMsg(FcUnit fcUnit) {
+        if (fcUnit.getRemark() == null || "".equals(fcUnit.getRemark())) {
+            fcUnit.setRemark("无");
+        }
+        return fcUnitMapper.updateById(fcUnit);
+    }
+
+    @Override
+    @Transactional
+    public int updateCacheCellMsg(FcCell fcCell) {
+        if (fcCell.getRemark() == null || "".equals(fcCell.getRemark())) {
+            fcCell.setRemark("无");
+        }
+        return fcCellMapper.updateById(fcCell);
     }
 }

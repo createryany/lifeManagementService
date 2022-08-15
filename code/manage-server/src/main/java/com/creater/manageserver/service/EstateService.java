@@ -36,4 +36,14 @@ public interface EstateService extends MPJBaseService<TblCompany> {
     Result searchCellMsg(String unitCode);
 
     Result updateCellMsg(FcCell fcCell);
+
+    Result getBuildMsg();
+
+    Result getUnitMsg();
+
+    int updateCacheBuildingMsg(FcBuilding fcBuilding);
+
+    int updateCacheUnitMsg(FcUnit fcUnit);
+
+    int updateCacheCellMsg(FcCell fcCell);
 }

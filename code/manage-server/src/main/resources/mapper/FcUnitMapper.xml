@@ -6,6 +6,7 @@
 
     <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FcUnit">
             <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="estateCode" column="estate_code" jdbcType="VARCHAR"/>
             <result property="buildingCode" column="building_code" jdbcType="VARCHAR"/>
             <result property="unitCode" column="unit_code" jdbcType="VARCHAR"/>
             <result property="unitName" column="unit_name" jdbcType="VARCHAR"/>
@@ -17,8 +18,9 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,building_code,unit_code,
-        unit_name,start_floor,stop_floor,
-        start_cell_id,stop_cell_id,remark
+        id,estate_code,building_code,
+        unit_code,unit_name,start_floor,
+        stop_floor,start_cell_id,stop_cell_id,
+        remark
     </sql>
 </mapper>

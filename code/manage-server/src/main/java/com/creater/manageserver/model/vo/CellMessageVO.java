@@ -16,6 +16,12 @@ import java.io.Serializable;
 public class CellMessageVO implements Serializable {
 
     private static final long serialVersionUID = 8906574929286341026L;
+
+    /**
+     * 房产编号
+     */
+    private String estateCode;
+
     /**
      * 楼宇编号
      */

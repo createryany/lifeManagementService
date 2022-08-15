@@ -6,6 +6,7 @@
 
     <resultMap id="BaseResultMap" type="com.creater.manageserver.model.domain.FcCell">
             <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="estateCode" column="estate_code" jdbcType="VARCHAR"/>
             <result property="unitCode" column="unit_code" jdbcType="VARCHAR"/>
             <result property="cellCode" column="cell_code" jdbcType="VARCHAR"/>
             <result property="cellName" column="cell_name" jdbcType="VARCHAR"/>
@@ -40,16 +41,16 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,unit_code,cell_code,
-        cell_name,cell_house_code,cell_toward_code,
-        cell_function,cell_decorate_code,cell_used_area,
-        cell_build_area,carport_area,car_area,
-        loft_area,store_area,floor_number,
-        last_debt,property_type,rent_money,
-        length,width,stall_use,
-        stall_area,is_sale,is_rent,
-        sale_contract_id,rent_contract_id,remark,
-        factor,cell_property,store_id,
-        car_licence_id,car_space_id
+        id,estate_code,unit_code,
+        cell_code,cell_name,cell_house_code,
+        cell_toward_code,cell_function,cell_decorate_code,
+        cell_used_area,cell_build_area,carport_area,
+        car_area,loft_area,store_area,
+        floor_number,last_debt,property_type,
+        rent_money,length,width,
+        stall_use,stall_area,is_sale,
+        is_rent,sale_contract_id,rent_contract_id,
+        remark,factor,cell_property,
+        store_id,car_licence_id,car_space_id
     </sql>
 </mapper>

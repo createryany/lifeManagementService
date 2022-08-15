@@ -16,6 +16,12 @@ import java.io.Serializable;
 public class UnitMessageVO implements Serializable {
 
     private static final long serialVersionUID = 6604655393049429186L;
+
+    /**
+     * 房产编号
+     */
+    private String estateCode;
+
     /**
      * 楼宇编号
      */

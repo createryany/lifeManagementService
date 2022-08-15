@@ -5,7 +5,7 @@ spring:
     name: yijiayun-server
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/yijiayun?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/yijiayun?useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: admin123
 mybatis-plus:

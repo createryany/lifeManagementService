@@ -22,6 +22,11 @@ public class FcCell implements Serializable {
     private Integer id;
 
     /**
+     * 房产编码
+     */
+    private String estateCode;
+
+    /**
      * 单元编码
      */
     private String unitCode;

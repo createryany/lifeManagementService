@@ -45,24 +45,24 @@
       </a-row>
       <a-row>
         <a-col :span="12">
-          <a-form-model-item label="占地面积(平房米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
+          <a-form-model-item label="占地面积(平方米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
             <a-input v-model="form.coverArea" />
           </a-form-model-item>
         </a-col>
         <a-col :span="12">
-          <a-form-model-item label="建筑面积(平房米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
+          <a-form-model-item label="建筑面积(平方米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
             <a-input v-model="form.buildArea" />
           </a-form-model-item>
         </a-col>
       </a-row>
       <a-row>
         <a-col :span="12">
-          <a-form-model-item label="绿地面积(平房米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
+          <a-form-model-item label="绿地面积(平方米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
             <a-input v-model="form.greenArea" />
           </a-form-model-item>
         </a-col>
         <a-col :span="12">
-          <a-form-model-item label="道路面积(平房米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
+          <a-form-model-item label="道路面积(平方米)" :labelCol="labelCol" :wrapperCol="wrapperCol">
             <a-input v-model="form.roadArea" />
           </a-form-model-item>
         </a-col>
@@ -178,7 +178,7 @@ export default {
             message: '楼宇数量必须填写',
             trigger: 'change'
           },
-          { min: 1, max: 20, type: 'number', message: '长度要求 1 ~ 20', trigger: 'change' }
+          { min: 1, max: 20, type: 'number', message: '楼宇数量必须在 1 ~ 20', trigger: 'change' }
         ]
       }
     }
@@ -207,10 +207,10 @@ export default {
                 description: res.message
               })
             }
-          }).catch(err => {
+          }).catch(() => {
             this.$notification['error']({
               message: '错误',
-              description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
+              description: '请求出现错误，请稍后再试',
               duration: 4
             })
           })
@@ -250,10 +250,10 @@ export default {
   created() {
     selectCompanys().then(res => {
       this.selectCompany = res.result
-    }).catch(err => {
+    }).catch(() => {
       this.$notification['error']({
         message: '错误',
-        description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
+        description: '请求出现错误，请稍后再试',
         duration: 4
       })
     })

@@ -3,7 +3,7 @@
     <!-- <a-form-model ref="ruleForm" :model="form2" :label-col="labelCol" :wrapper-col="wrapperCol"> -->
     <a-row class="header">
       选择楼宇:
-      <a-select style="min-width: 66px;" v-model="form2.buildingMsg" @change="changeBuildingMsg()">
+      <a-select style="min-width: 85px;" v-model="form2.buildingMsg" @change="changeBuildingMsg()">
         <a-select-option
           :key="index"
           :value="item.buildingCode"
@@ -72,7 +72,14 @@
 </template>
 
 <script>
-import { addCell, searchBaseBuildMsg, searchBaseUnitMsg, searchCellMsg, updateCellMsg } from '@/api/estate'
+import {
+  addCell,
+  searchBaseBuildMsg,
+  searchBaseUnitMsg,
+  searchCellMsg,
+  updateCacheCellMsg,
+  updateCellMsg
+} from '@/api/estate'
 import QS from 'qs'
 
 const columns = [
@@ -164,9 +171,35 @@ export default {
   },
   methods: {
     nextStep() {
+      const dataArray = this.data
+      for (let j = 0; j < dataArray.length; j++) {
+        dataArray[j].id = dataArray[j].key
+        delete dataArray[j].key
+      }
+      updateCacheCellMsg(dataArray).then(res => {
+        const failMessage = res.message
+        if (failMessage !== '') {
+          this.$notification['error']({
+            message: '抱歉',
+            description: failMessage
+          })
+        }
+      }).catch((err) => {
+        this.$notification['error']({
+          message: '错误',
+          description: err.message || '请求参数错误'
+        })
+      })
+      setTimeout(() => {
+        this.$notification.success({
+          message: '您好',
+          description: '住宅信息已保存成功！'
+        })
+      }, 1000)
       this.$emit('nextStep')
     },
     prevStep() {
+      this.$store.state.stepState.step4Msg = this.data
       this.$store.state.stepState.isCreated = false
       this.$emit('prevStep')
     },
@@ -273,10 +306,10 @@ export default {
             })
           }
         })
-        .catch(err => {
+        .catch(() => {
           this.$notification['error']({
             message: '错误',
-            description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
+            description: '请求出现错误，请稍后再试',
             duration: 4
           })
         })
@@ -294,13 +327,21 @@ export default {
   },
   created() {
     if (this.$store.state.stepState.isCreated) {
+      const cacheStep4Data = this.$store.state.stepState.step4Msg
       addCell(this.$store.state.stepState.cellMessage)
         .then(res => {
           const result = res.result
+          const myData = []
           if (result.length) {
             for (let i = 0; i < result.length; i++) {
               const cell = result[i]
-              data.push({
+              if (cacheStep4Data.length !== 0) {
+                cell.cellBuildArea = cacheStep4Data[i].cellBuildArea
+                cell.cellUsedArea = cacheStep4Data[i].cellUsedArea
+                cell.remark = cacheStep4Data[i].remark
+                this.$store.state.stepState.step4Msg = []
+              }
+              myData.push({
                 key: cell.id,
                 floorNumber: cell.floorNumber,
                 unitCode: cell.unitCode,
@@ -311,6 +352,8 @@ export default {
                 remark: cell.remark
               })
             }
+            this.$store.state.stepState.step4Msg = []
+            this.data = myData
             this.cacheData = data.map(item => ({ ...item }))
           }
         }).catch(err => {
@@ -332,10 +375,10 @@ export default {
             })
           }
         })
-        .catch(err => {
+        .catch(() => {
           this.$notification['error']({
             message: '错误',
-            description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
+            description: '请求出现错误，请稍后再试',
             duration: 4
           })
         })

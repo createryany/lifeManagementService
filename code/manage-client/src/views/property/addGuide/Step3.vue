@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import { searchUnitMsg, updateUnitMsg } from '@/api/estate'
+import { searchUnitMsg, getUnitMsg, updateUnitMsg, updateCacheUnitMsg } from '@/api/estate'
 import QS from 'qs'
 
 const columns = [
@@ -175,26 +175,53 @@ export default {
       let cellMessageArray = '['
       for (let i = 0; i < dataArray.length; i++) {
         if (i !== dataArray.length - 1) {
-          cellMessageArray += '{ "unitCode": "' + dataArray[i].unitCode + '", "startFloor": ' + dataArray[i].startFloor + ', "stopFloor": ' + dataArray[i].stopFloor + ', "startCellId": ' + dataArray[i].startCellId + ', "stopCellId": ' + dataArray[i].stopCellId + '},'
+          cellMessageArray += '{ "estateCode": "' + this.$store.state.stepState.estateCode + '", "unitCode": "' + dataArray[i].unitCode + '", "startFloor": ' + dataArray[i].startFloor + ', "stopFloor": ' + dataArray[i].stopFloor + ', "startCellId": ' + dataArray[i].startCellId + ', "stopCellId": ' + dataArray[i].stopCellId + '},'
         } else {
-          cellMessageArray += '{ "unitCode": "' + dataArray[i].unitCode + '", "startFloor": ' + dataArray[i].startFloor + ', "stopFloor": ' + dataArray[i].stopFloor + ', "startCellId": ' + dataArray[i].startCellId + ', "stopCellId": ' + dataArray[i].stopCellId + '}]'
+          cellMessageArray += '{ "estateCode": "' + this.$store.state.stepState.estateCode + '", "unitCode": "' + dataArray[i].unitCode + '", "startFloor": ' + dataArray[i].startFloor + ', "stopFloor": ' + dataArray[i].stopFloor + ', "startCellId": ' + dataArray[i].startCellId + ', "stopCellId": ' + dataArray[i].stopCellId + '}]'
         }
       }
       this.$store.commit('SET_STEP3', {
         cellMessage: cellMessageArray,
         isCreated: true
       })
+      for (let j = 0; j < dataArray.length; j++) {
+        dataArray[j].id = dataArray[j].key
+        delete dataArray[j].key
+      }
+      updateCacheUnitMsg(dataArray).then(res => {
+        const failMessage = res.message
+        if (failMessage !== '') {
+          this.$notification['error']({
+            message: '抱歉',
+            description: failMessage
+          })
+        }
+      }).catch((err) => {
+        this.$notification['error']({
+          message: '错误',
+          description: err.message || '请求参数错误'
+        })
+      })
       this.$emit('nextStep')
     },
     prevStep() {
+      this.$store.state.stepState.step3Msg = this.data
       this.$store.state.stepState.isCreated = false
       this.$emit('prevStep')
     },
     changeFloorNum() {
       const floorNum = this.form2.floorNum
-      for (let i = 0; i < this.data.length; i++) {
-        this.data[i].startFloor = 1
-        this.data[i].stopFloor = floorNum
+      if (floorNum > 25) {
+        this.$notification['error']({
+          message: '抱歉',
+          description: '楼层数太高，超过25层，系统无法录入',
+          duration: 4
+        })
+      } else {
+        for (let i = 0; i < this.data.length; i++) {
+          this.data[i].startFloor = 1
+          this.data[i].stopFloor = floorNum
+        }
       }
     },
     changeStartCellId() {
@@ -227,7 +254,6 @@ export default {
       }
     },
     save(key) {
-      console.log(key)
       const newData = [...this.data]
       const newCacheData = [...this.cacheData]
       const target = newData.filter(item => key === item.key)[0]
@@ -263,10 +289,10 @@ export default {
               })
             }
           })
-          .catch(err => {
+          .catch(() => {
             this.$notification['error']({
               message: '错误',
-              description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
+              description: '请求出现错误，请稍后再试',
               duration: 4
             })
           })
@@ -285,6 +311,7 @@ export default {
   },
   created() {
     if (this.$store.state.stepState.isCreated) {
+      const step3CacheData = this.$store.state.stepState.step3Msg
       searchUnitMsg(this.$store.state.stepState.unitMessage)
         .then(res => {
           const result = res.result
@@ -292,8 +319,17 @@ export default {
           if (result.length) {
             for (let i = 0; i < result.length; i++) {
               const unit = result[i]
+              if (step3CacheData.length !== 0) {
+                unit.startFloor = step3CacheData[i].startFloor
+                unit.stopFloor = step3CacheData[i].stopFloor
+                unit.startCellId = step3CacheData[i].startCellId
+                unit.stopCellId = step3CacheData[i].stopCellId
+                unit.remark = step3CacheData[i].remark
+                this.$store.state.stepState.step3Msg = []
+              }
               myData.push({
                 key: unit.id,
+                estateCode: unit.estateCode,
                 buildingCode: unit.buildingCode,
                 unitCode: unit.unitCode,
                 unitName: unit.unitName,
@@ -304,6 +340,7 @@ export default {
                 remark: unit.remark
               })
             }
+            this.$store.state.stepState.step3Msg = []
             this.data = myData
             this.cacheData = this.data.map(item => ({ ...item }))
           }
@@ -314,6 +351,34 @@ export default {
             description: '请求出现错误，请稍后再试'
           })
         })
+    } else {
+      getUnitMsg().then(res => {
+        const result = res.result
+        const myData = []
+        if (result.length) {
+          for (let i = 0; i < result.length; i++) {
+            const unit = result[i]
+            myData.push({
+              key: unit.id,
+              buildingCode: unit.buildingCode,
+              unitCode: unit.unitCode,
+              unitName: unit.unitName,
+              startFloor: unit.startFloor,
+              stopFloor: unit.stopFloor,
+              startCellId: unit.startCellId,
+              stopCellId: unit.stopCellId,
+              remark: unit.remark
+            })
+          }
+          this.data = myData
+          this.cacheData = this.data.map(item => ({ ...item }))
+        }
+      }).catch(() => {
+        this.$notification['error']({
+          message: '错误',
+          description: '请求出现错误，请稍后再试'
+        })
+      })
     }
   },
   beforeDestroy() {

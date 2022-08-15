@@ -34,13 +34,13 @@ public class LoginController {
     public Result login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
                         HttpServletRequest request) {
-        log.info("===调用了login()方法");
+        log.info("===调用了login()方法\n");
         return loginService.login(request, username, password);
     }
 
     @GetMapping("/user/info")
     public Result getUserInfo(HttpServletRequest request) {
-        log.info("===调用了getUserInfo()方法");
+        log.info("===调用了getUserInfo()方法\n");
         TblUserRecordDTO tblUserRecordDTO = (TblUserRecordDTO) request.getSession().getAttribute("userInfo");
         // 获取权限模块
         String[] permissionArray = tblUserRecordDTO.getRolePrivileges().split("-");
@@ -61,7 +61,7 @@ public class LoginController {
 
     @RequestMapping("/auth/logout")
     public Result logout(HttpSession session) {
-        log.info("===调用了logout()方法");
+        log.info("===调用了logout()方法\n");
         TblUserRecordDTO tblUserRecordDTO = (TblUserRecordDTO) session.getAttribute("userInfo");
         log.info(tblUserRecordDTO.getUserName() + "--退出登录");
         session.invalidate();

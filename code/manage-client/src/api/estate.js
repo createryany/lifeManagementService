@@ -92,3 +92,41 @@ export function updateCellMsg(parameterData) {
     data: parameterData
   })
 }
+
+export function getBuildMsg() {
+  return axios({
+    url: '/estate/getBuildMsg',
+    method: 'post'
+  })
+}
+
+export function getUnitMsg() {
+  return axios({
+    url: '/estate/getUnitMsg',
+    method: 'post'
+  })
+}
+
+export function updateCacheBuildingMsg(parameterData) {
+  return axios({
+    url: '/estate/updateCacheBuildingMsg',
+    method: 'post',
+    data: parameterData
+  })
+}
+
+export function updateCacheUnitMsg(parameterData) {
+  return axios({
+    url: '/estate/updateCacheUnitMsg',
+    method: 'post',
+    data: parameterData
+  })
+}
+
+export function updateCacheCellMsg(parameterData) {
+  return axios({
+    url: '/estate/updateCacheCellMsg',
+    method: 'post',
+    data: parameterData
+  })
+}

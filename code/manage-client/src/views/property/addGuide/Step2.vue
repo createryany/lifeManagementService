@@ -1,20 +1,43 @@
 <template>
   <div>
     <!-- <a-form-model ref="ruleForm" :model="form2" :label-col="labelCol" :wrapper-col="wrapperCol"> -->
-    <a-row class="header">
-      楼宇数量:
-      <span style="color: #001529;font-weight: 700;">{{ this.$store.state.stepState.buildingNumber }}</span>
-      单元数量:
-      <!-- <a-form-model-item label="单元数量：" prop="region" class="units" :labelCol="labelCol" :wrapperCol="wrapperCol"> -->
-      <a-select v-model="form2.region" @change="change()">
-        <a-select-option value="1">1</a-select-option>
-        <a-select-option value="2">2</a-select-option>
-        <a-select-option value="3">3</a-select-option>
-        <a-select-option value="4">4</a-select-option>
-        <a-select-option value="5">5</a-select-option>
-        <a-select-option value="6">6</a-select-option>
-      </a-select>
-      <!-- </a-form-model-item> -->
+    <a-row class="header" :id="form2.isAble?'h120':''">
+      <div style="display: inline-block;margin-left: 30px;margin-top: 30px;">
+        楼宇数量:
+        <span style="color: #001529;font-weight: 700;">{{ this.$store.state.stepState.buildingNumber }}</span>
+      </div>
+      <div style="display: inline-block;margin-left: 30px;">
+        单元数量:
+        <a-select v-model="form2.region" @change="change()">
+          <a-select-option value="1">1</a-select-option>
+          <a-select-option value="2">2</a-select-option>
+          <a-select-option value="3">3</a-select-option>
+          <a-select-option value="4">4</a-select-option>
+          <a-select-option value="5">5</a-select-option>
+          <a-select-option value="6">6</a-select-option>
+        </a-select>
+      </div>
+      <div style="display: inline-block;margin-left: 30px;">
+        封顶日期和竣工日期:
+        <a-range-picker v-model="form2.ofDate" :format="form2.format" @blur="changeDate()"/>
+      </div>
+      <div style="display: inline-block;margin-left: 30px;">
+        预售许可证:
+        <a-input style="width: 300px;padding: 0;text-align: center;" v-model="form2.salePermission" @blur="changeSalePer()"></a-input>
+      </div>
+      <a-button type="primary" class="isShow" @click="isShow()" :open="false">{{ this.form2.isAble?'收起':'展开' }}</a-button>
+      <span v-show="form2.isAble" style="display: inline-block;margin-left: 30px;margin-top: 20px;">
+        建筑许可证:
+        <a-input style="width: 300px;padding: 0;text-align: center;" v-model="form2.buildPermission" @blur="changeBuildPer()"></a-input>
+      </span>
+      <span v-show="form2.isAble" style="display: inline-block;margin-left: 30px;margin-top: 20px;">
+        建筑面积:
+        <a-input style="width: 300px;padding: 0;text-align: center;" v-model="form2.areaForBuild" @blur="changeAreaB()"></a-input>
+      </span>
+      <span v-show="form2.isAble" style="display: inline-block;margin-left: 30px;margin-top: 20px;">
+        使用面积:
+        <a-input style="width: 300px;padding: 0;text-align: center;" v-model="form2.areaForUsed" @blur="changeAreaU()"></a-input>
+      </span>
     </a-row>
     <a-row>
       <a-table :columns="columns" :dataSource="data" bordered align="center">
@@ -41,7 +64,7 @@
               :value="text"
               @change="e => handleChange(e.target.value, record.key, col)"
             />
-            <template v-else>{{ text }}</template>
+            <template v-else> {{ text }} </template>
           </div>
         </template>
         <template slot="operation" slot-scope="text, record">
@@ -53,7 +76,7 @@
               </a-popconfirm>
             </span>
             <span v-else>
-              <a :disabled="editingKey !== ''" @click="() => edit(record.key)">编辑</a>
+              <a :disabled="editingKey !== ''" @click="() => edit(record.key)">编 辑</a>
             </span>
           </div>
         </template>
@@ -66,8 +89,10 @@
 </template>
 
 <script>
-import { searchBuild, updateBuildingMsg } from '@/api/estate'
+import { searchBuild, getBuildMsg, updateBuildingMsg, updateCacheBuildingMsg } from '@/api/estate'
 import QS from 'qs'
+import moment from 'moment'
+import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
 
 const columns = [
   {
@@ -159,21 +184,21 @@ export default {
       wrapperCol: { span: 1 },
       form2: {
         name: '',
-        region: undefined,
-        date1: undefined,
-        delivery: false,
-        type: [],
-        resource: '',
-        desc: ''
+        region: '',
+        salePermission: '',
+        buildPermission: '',
+        areaForBuild: '',
+        areaForUsed: '',
+        isAble: false,
+        isOpen: '展开',
+        format: 'YYYY/MM/DD',
+        ofDate: [moment('2022/01/01'), moment('2022/12/31')],
+        locale: zhCN
       },
       data,
       columns,
-      editingKey: ''
-      // labelCol: { lg: { span: 5 }, sm: { span: 5 } },
-      // wrapperCol: { lg: { span: 19 }, sm: { span: 19 } },
-      // form: this.$form.createForm(this),
-      // loading: false,
-      // timer: 0
+      editingKey: '',
+      locale: zhCN
     }
   },
   methods: {
@@ -188,19 +213,73 @@ export default {
       let unitMessage = '['
       for (let i = 0; i < dataArray.length; i++) {
         if (i !== dataArray.length - 1) {
-          unitMessage += '{ "buildingCode": "' + dataArray[i].buildingCode + '", "unitCount": ' + dataArray[i].unitCount + '},'
+          unitMessage += '{ "estateCode": "' + this.$store.state.stepState.estateCode + '", "buildingCode" : "' + dataArray[i].buildingCode + '", "unitCount": ' + dataArray[i].unitCount + '},'
         } else {
-          unitMessage += '{ "buildingCode": "' + dataArray[i].buildingCode + '", "unitCount": ' + dataArray[i].unitCount + '}]'
+          unitMessage += '{ "estateCode": "' + this.$store.state.stepState.estateCode + '", "buildingCode" : "' + dataArray[i].buildingCode + '", "unitCount": ' + dataArray[i].unitCount + '}]'
         }
       }
       this.$store.commit('SET_STEP2', {
         unitMessage: unitMessage,
         isCreated: true
       })
-      this.$emit('nextStep')
+      let unitCountMsg = 0
+      for (let j = 0; j < dataArray.length; j++) {
+        dataArray[j].id = dataArray[j].key
+        delete dataArray[j].key
+        dataArray[j].overRoofDate = moment(dataArray[j].overRoofDate).format('YYYY-MM-DD')
+        dataArray[j].finishDate = moment(dataArray[j].finishDate).format('YYYY-MM-DD')
+        if (dataArray[j].unitCount !== null) {
+          unitCountMsg += 1
+        }
+      }
+      if (unitCountMsg !== dataArray.length) {
+        console.log('欸欸欸欸欸欸额', unitCountMsg, dataArray.length)
+        this.$notification.warn({
+          message: '您好',
+          description: '每个单元数量不能小于 1'
+        })
+        unitCountMsg = 0
+      } else {
+        updateCacheBuildingMsg(dataArray).then(res => {
+          const failMessage = res.message
+          if (failMessage !== '') {
+            this.$notification['error']({
+              message: '抱歉',
+              description: failMessage
+            })
+          }
+        }).catch(() => {
+          this.$notification['error']({
+            message: '错误',
+            description: '请求参数错误'
+          })
+        })
+        unitCountMsg = 0
+        this.$emit('nextStep')
+      }
     },
-    prevStep() {
-      // this.$emit('prevStep')
+    isShow() {
+      this.form2.isAble = !this.form2.isAble
+    },
+    changeSalePer() {
+      for (let i = 0; i < this.data.length; i++) {
+        this.data[i].salePermissionId = this.form2.salePermission
+      }
+    },
+    changeBuildPer() {
+      for (let i = 0; i < this.data.length; i++) {
+        this.data[i].buildPermissionId = this.form2.buildPermission
+      }
+    },
+    changeAreaB() {
+      for (let i = 0; i < this.data.length; i++) {
+        this.data[i].buildArea = this.form2.areaForBuild
+      }
+    },
+    changeAreaU() {
+      for (let i = 0; i < this.data.length; i++) {
+        this.data[i].usedArea = this.form2.areaForUsed
+      }
     },
     handleChange(value, key, column) {
       const newData = [...this.data]
@@ -208,6 +287,13 @@ export default {
       if (target) {
         target[column] = value
         this.data = newData
+      }
+    },
+    changeDate() {
+      const dataArray = this.data
+      for (let i = 0; i < dataArray.length; i++) {
+        dataArray[i].overRoofDate = moment(this.form2.ofDate[0]).format(this.form2.format)
+        dataArray[i].finishDate = moment(this.form2.ofDate[1]).format(this.form2.format)
       }
     },
     edit(key) {
@@ -231,30 +317,40 @@ export default {
         Object.assign(targetCache, target)
         this.cacheData = newCacheData
       }
-      target.id = key
-      target.estateCode = this.$store.state.stepState.estateCode
-      if (target.remark == null) target.remark = '无'
-      const parameterData = QS.stringify(target)
-      updateBuildingMsg(parameterData).then(res => {
-        const result = res.result
-        if (result === 1) {
-          this.$notification.success({
-            message: '您好',
-            description: res.message
-          })
-        } else {
-          this.$notification.warning({
-            message: '您好',
-            description: res.message
-          })
-        }
-      }).catch(err => {
-        this.$notification['error']({
-          message: '错误',
-          description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
-          duration: 4
+      if (target.unitCount === null || target.unitCount === 0) {
+        this.$notification.warn({
+          message: '您好',
+          description: '单元数量不能小于 1'
         })
-      })
+      } else {
+        target.id = key
+        target.estateCode = this.$store.state.stepState.estateCode
+        if (target.remark == null) target.remark = '无'
+        target.overRoofDate = moment(target.overRoofDate).format(this.form2.format)
+        target.finishDate = moment(target.finishDate).format(this.form2.format)
+        const parameterData = QS.stringify(target)
+        console.log(parameterData)
+        updateBuildingMsg(parameterData).then(res => {
+          const result = res.result
+          if (result === 1) {
+            this.$notification.success({
+              message: '您好',
+              description: res.message
+            })
+          } else {
+            this.$notification.warning({
+              message: '您好',
+              description: res.message
+            })
+          }
+        }).catch(() => {
+          this.$notification['error']({
+            message: '错误',
+            description: '请求出现错误，请稍后再试',
+            duration: 4
+          })
+        })
+      }
     },
     cancel(key) {
       const newData = [...this.data]
@@ -280,13 +376,15 @@ export default {
         if (result.length) {
           for (let i = 0; i < result.length; i++) {
             const building = result[i]
+            if (building.overRoofDate === null) building.overRoofDate = moment(this.form2.ofDate[0]).format(this.form2.format)
+            if (building.finishDate === null) building.finishDate = moment(this.form2.ofDate[1]).format(this.form2.format)
             myData.push({
               key: building.id,
               buildingCode: building.buildingCode,
               buildingName: building.buildingName,
               unitCount: building.unitCount,
               overRoofDate: building.overRoofDate,
-              finishdDate: building.finishdDate,
+              finishDate: building.finishDate,
               salePermissionId: building.salePermissionId,
               buildPermissionId: building.buildPermissionId,
               buildArea: building.buildArea,
@@ -302,10 +400,46 @@ export default {
             description: res.message
           })
         }
-      }).catch(err => {
+      }).catch(() => {
         this.$notification['error']({
           message: '错误',
-          description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
+          description: '请求出现错误，请稍后再试',
+          duration: 4
+        })
+      })
+    } else {
+      getBuildMsg().then(res => {
+        const result = res.result
+        const myData = []
+        if (result.length) {
+          for (let i = 0; i < result.length; i++) {
+            const building = result[i]
+            myData.push({
+              key: building.id,
+              buildingCode: building.buildingCode,
+              buildingName: building.buildingName,
+              unitCount: building.unitCount,
+              overRoofDate: moment(building.overRoofDate).format('YYYY/MM/DD'),
+              finishDate: moment(building.finishDate).format('YYYY/MM/DD'),
+              salePermissionId: building.salePermissionId,
+              buildPermissionId: building.buildPermissionId,
+              buildArea: building.buildArea,
+              usedArea: building.usedArea,
+              remark: building.remark
+            })
+          }
+          this.data = myData
+          this.cacheData = this.data.map(item => ({ ...item }))
+        } else {
+          this.$notification.warning({
+            message: '您好',
+            description: res.message
+          })
+        }
+      }).catch(() => {
+        this.$notification['error']({
+          message: '错误',
+          description: '请求出现错误，请稍后再试',
           duration: 4
         })
       })
@@ -325,5 +459,15 @@ export default {
   .ant-form-item-control {
     line-height: 22px;
   }
+}
+.isShow {
+  display: inline-block;
+  width: 72px;
+  height: 32px;
+  margin-left: 30px;
+  margin-top: 24px;
+}
+#h120 {
+  height: 120px;
 }
 </style>
